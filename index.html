@@ -133,6 +133,8 @@ form{display:grid;gap:18px}
 label{font-size:14px;font-weight:500}
 label .req{color:var(--accent)}
 .hint{font-size:12px;color:var(--muted)}
+.target{justify-self:start;font-size:14px;background:var(--petal-2);border-radius:999px;padding:6px 14px}
+.target b{color:var(--accent);margin-right:6px}
 input,select{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .agree{display:grid;gap:8px;background:var(--paper);border-radius:12px;padding:14px}
@@ -268,7 +270,7 @@ body{position:relative}
       <div class="blob"><small>15만 원 상당</small><b>마음 팔레트<br>무료 체험</b></div>
       <div class="blob"><small>키링까지 달 수 있는</small><b>오브제<br>텀블러 🥤</b></div>
     </div>
-    <p class="note">마음 팔레트에 참여하고 후기를 남겨주신 분께<br>취향대로 고르는 오브제 텀블러를 선물로 드려요.</p>
+    <p class="note"><b>신청 대상</b> 서울·경기 거주 20~39세<br>마음 팔레트에 참여하고 후기를 남겨주신 분께<br>취향대로 고르는 오브제 텀블러를 선물로 드려요.</p>
   </section>
 
   <!-- REVIEWS -->
@@ -291,6 +293,7 @@ body{position:relative}
     <span class="eyebrow" style="--wash:var(--sage)">초대장</span>
     <h2>초대장에 답장하기 💌</h2>
     <p style="color:var(--muted)">아래 정보를 남겨주시면 연락처로 자세한 안내를 드릴게요.</p>
+    <p class="target"><b>신청 대상</b> 서울·경기 거주 20~39세</p>
 
     <form id="form" novalidate>
       <div class="field">
@@ -304,12 +307,16 @@ body{position:relative}
       <div class="two">
         <div class="field">
           <label for="age">나이 <span class="req">*</span></label>
-          <input id="age" name="age" inputmode="numeric" placeholder="25">
+          <input id="age" name="age" inputmode="numeric" placeholder="20~39">
         </div>
         <div class="field">
           <label for="gender">성별 <span class="req">*</span></label>
           <select id="gender" name="gender"><option value="">선택</option><option>여성</option><option>남성</option><option>기타</option></select>
         </div>
+      </div>
+      <div class="field">
+        <label for="region">거주 지역 <span class="req">*</span></label>
+        <select id="region" name="region"><option value="">선택</option><option>서울</option><option>경기</option></select>
       </div>
       <div class="field">
         <label for="phone">연락처 <span class="req">*</span></label>
@@ -323,7 +330,7 @@ body{position:relative}
       <div class="agree">
         <label><input type="checkbox" id="agree"> 개인정보 수집·이용에 동의해요 <span class="req">*</span></label>
         <details><summary>자세히 보기</summary>
-          <p>수집 항목: 이름, 나이, 성별, 연락처, 인스타그램 ID<br>수집 목적: 이벤트 참여 안내, 프로그램 진행, 선물 발송<br>보유 기간: 이벤트 종료 후 3개월 내 파기<br>동의를 거부할 수 있으나, 거부 시 이벤트 참여가 제한돼요.</p>
+          <p>수집 항목: 이름, 나이, 성별, 거주 지역, 연락처, 인스타그램 ID<br>수집 목적: 이벤트 참여 안내, 프로그램 진행, 선물 발송<br>보유 기간: 이벤트 종료 후 3개월 내 파기<br>동의를 거부할 수 있으나, 거부 시 이벤트 참여가 제한돼요.</p>
         </details>
       </div>
       <p class="err" id="err" role="alert"></p>
@@ -432,11 +439,13 @@ form.addEventListener("submit",async e=>{
   if(!chosen) return err.textContent="받고 싶은 텀블러 컬러를 골라주세요.";
   if(!v("name")) return err.textContent="이름을 입력해주세요.";
   if(!/^\d{1,3}$/.test(v("age"))) return err.textContent="나이를 숫자로 입력해주세요.";
+  if(+v("age")<20||+v("age")>39) return err.textContent="이번 이벤트는 20~39세만 신청할 수 있어요.";
   if(!v("gender")) return err.textContent="성별을 선택해주세요.";
+  if(!v("region")) return err.textContent="거주 지역을 선택해주세요. 이번 이벤트는 서울·경기 거주자만 신청할 수 있어요.";
   if(!/^01[0-9]-?\d{3,4}-?\d{4}$/.test(v("phone"))) return err.textContent="연락처를 010-0000-0000 형식으로 입력해주세요.";
   if(!document.getElementById("agree").checked) return err.textContent="개인정보 수집·이용에 동의해주세요.";
   err.textContent="";
-  const data={ color:COLORS[chosen].name, name:v("name"), age:v("age"), gender:v("gender"), phone:v("phone"),
+  const data={ color:COLORS[chosen].name, name:v("name"), age:v("age"), gender:v("gender"), region:v("region"), phone:v("phone"),
     insta:v("insta"), words:[...picked.keys()].join(", "), palette:[...new Set([...picked.values()].map(k=>k.name))].join(", "), submittedAt:new Date().toISOString() };
   const btn=document.getElementById("submitBtn"); btn.disabled=true; btn.textContent="보내는 중…";
   try{
