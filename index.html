@@ -409,7 +409,7 @@ KEYWORDS.forEach(k=>{
     findBtn.textContent = n<3 ? `단어를 3개 이상 골라주세요 (${n}/3)` : `내 마음 팔레트 완성하기 (${n}개)`; renderPal(); };
   chipsEl.appendChild(b);
 });
-const SPOTS=[[74,92],[116,58],[168,46],[220,58],[258,96],[232,142],[176,148],[134,104],[196,100],[120,150]];
+const SPOTS=[[74,92],[116,58],[168,46],[220,58],[258,96],[232,142],[176,148],[134,104],[196,100],[138,154]];
 const NS="http://www.w3.org/2000/svg";
 (function(){ const sl=document.getElementById("slots"); SPOTS.forEach(([x,y])=>{ const c=document.createElementNS(NS,"circle"); c.setAttribute("cx",x); c.setAttribute("cy",y); c.setAttribute("r",15); sl.appendChild(c); }); })();
 function pickedColors(){ const names=[],colors=[]; picked.forEach(k=>{ if(!names.includes(k.name)){ names.push(k.name); colors.push(k.hex); } }); return {names,colors}; }
