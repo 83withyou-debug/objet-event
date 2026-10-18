@@ -319,6 +319,11 @@ body{position:relative}
         <select id="region" name="region"><option value="">선택</option><option>서울</option><option>경기</option></select>
       </div>
       <div class="field">
+        <label for="station">거주지에서 가장 가까운 지하철역 <span class="req">*</span></label>
+        <input id="station" name="station" placeholder="예: 강남역">
+        <span class="hint">💡 안전한 텀블러 배송 참고용으로만 사용돼요!</span>
+      </div>
+      <div class="field">
         <label for="phone">연락처 <span class="req">*</span></label>
         <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000">
       </div>
@@ -330,7 +335,7 @@ body{position:relative}
       <div class="agree">
         <label><input type="checkbox" id="agree"> 개인정보 수집·이용에 동의해요 <span class="req">*</span></label>
         <details><summary>자세히 보기</summary>
-          <p>수집 항목: 이름, 나이, 성별, 거주 지역, 연락처, 인스타그램 ID<br>수집 목적: 이벤트 참여 안내, 프로그램 진행, 선물 발송<br>보유 기간: 이벤트 종료 후 3개월 내 파기<br>동의를 거부할 수 있으나, 거부 시 이벤트 참여가 제한돼요.</p>
+          <p>수집 항목: 이름, 나이, 성별, 거주 지역, 가까운 지하철역, 연락처, 인스타그램 ID<br>수집 목적: 이벤트 참여 안내, 프로그램 진행, 선물 발송<br>보유 기간: 이벤트 종료 후 3개월 내 파기<br>동의를 거부할 수 있으나, 거부 시 이벤트 참여가 제한돼요.</p>
         </details>
       </div>
       <p class="err" id="err" role="alert"></p>
@@ -442,10 +447,11 @@ form.addEventListener("submit",async e=>{
   if(+v("age")<20||+v("age")>39) return err.textContent="이번 이벤트는 20~39세만 신청할 수 있어요.";
   if(!v("gender")) return err.textContent="성별을 선택해주세요.";
   if(!v("region")) return err.textContent="거주 지역을 선택해주세요. 이번 이벤트는 서울·경기 거주자만 신청할 수 있어요.";
+  if(!v("station")) return err.textContent="거주지에서 가장 가까운 지하철역을 적어주세요.";
   if(!/^01[0-9]-?\d{3,4}-?\d{4}$/.test(v("phone"))) return err.textContent="연락처를 010-0000-0000 형식으로 입력해주세요.";
   if(!document.getElementById("agree").checked) return err.textContent="개인정보 수집·이용에 동의해주세요.";
   err.textContent="";
-  const data={ color:COLORS[chosen].name, name:v("name"), age:v("age"), gender:v("gender"), region:v("region"), phone:v("phone"),
+  const data={ color:COLORS[chosen].name, name:v("name"), age:v("age"), gender:v("gender"), region:v("region"), station:v("station"), phone:v("phone"),
     insta:v("insta"), words:[...picked.keys()].join(", "), palette:[...new Set([...picked.values()].map(k=>k.name))].join(", "), submittedAt:new Date().toISOString() };
   const btn=document.getElementById("submitBtn"); btn.disabled=true; btn.textContent="보내는 중…";
   try{
