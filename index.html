@@ -103,7 +103,10 @@ section{padding-block:56px 0;display:grid;gap:16px}
 .cupwrap::before{content:"";position:absolute;inset:6px;border-radius:55% 45% 50% 50% / 50% 55% 45% 50%;background:var(--res,var(--lav));opacity:.35;filter:blur(2px)}
 .cup{width:72px;height:96px;position:relative}
 .result h3{font-size:20px}
+.palwrap{display:grid;justify-items:center;gap:2px}
 .mypal{width:min(260px,100%);height:auto}
+.palhint{font-family:var(--hand);font-size:20px;color:var(--muted);line-height:1.2}
+#slots circle{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:3 4}
 .rnames{font-family:var(--hand);font-size:22px;color:var(--ink)!important;line-height:1.3}
 .rcopy{color:var(--ink)!important;font-size:15px!important;line-height:1.8}
 .rsub{font-size:13px!important}
@@ -240,15 +243,19 @@ body{position:relative}
     <h2>오늘 내 마음은 <span class="wash" style="--wash:var(--petal)">무슨 색</span>일까요?</h2>
     <p style="color:var(--muted)">요즘의 나를 닮은 단어를 3개 이상 골라보세요.<br>고른 단어의 색으로 내 마음 팔레트를 그려볼게요.</p>
     <div class="quiz">
-      <div class="chips" id="chips" role="group" aria-label="요즘의 나를 닮은 단어"></div>
-      <button class="btn" id="findBtn" type="button" disabled>단어를 3개 이상 골라주세요</button>
-      <div class="result" id="result" hidden>
+      <div class="palwrap">
         <svg class="mypal" viewBox="0 0 320 210" role="img" aria-label="내가 고른 색으로 칠한 팔레트">
           <path d="M30 118C14 62 82 18 166 18c88 0 140 46 136 102-4 50-56 78-116 74-30-2-28-28-56-30-30-2-26 34-64 26C40 184 40 150 30 118Z"
                 fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
           <ellipse cx="92" cy="146" rx="15" ry="13" fill="var(--bg)" stroke="var(--line)" stroke-width="2"/>
+          <g id="slots"></g>
           <g id="myDabs" filter="url(#wc)"></g>
         </svg>
+        <p class="palhint" id="palhint">단어를 고르면 팔레트에 물감이 짜여요</p>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="요즘의 나를 닮은 단어"></div>
+      <button class="btn" id="findBtn" type="button" disabled>단어를 3개 이상 골라주세요</button>
+      <div class="result" id="result" hidden>
         <span class="eyebrow" style="justify-self:center;--wash:var(--lav)">나의 마음 팔레트</span>
         <h3 id="rTitle"></h3>
         <p class="rnames" id="rNames"></p>
@@ -399,19 +406,27 @@ KEYWORDS.forEach(k=>{
   b.onclick=()=>{ picked.has(k.w)?picked.delete(k.w):picked.set(k.w,k);
     b.setAttribute("aria-pressed",picked.has(k.w));
     const n=picked.size; findBtn.disabled=n<3;
-    findBtn.textContent = n<3 ? `단어를 3개 이상 골라주세요 (${n}/3)` : `내 마음 팔레트 그리기 (${n}개)`; };
+    findBtn.textContent = n<3 ? `단어를 3개 이상 골라주세요 (${n}/3)` : `내 마음 팔레트 완성하기 (${n}개)`; renderPal(); };
   chipsEl.appendChild(b);
 });
 const SPOTS=[[74,92],[116,58],[168,46],[220,58],[258,96],[232,142],[176,148],[134,104],[196,100],[120,150]];
+const NS="http://www.w3.org/2000/svg";
+(function(){ const sl=document.getElementById("slots"); SPOTS.forEach(([x,y])=>{ const c=document.createElementNS(NS,"circle"); c.setAttribute("cx",x); c.setAttribute("cy",y); c.setAttribute("r",15); sl.appendChild(c); }); })();
+function pickedColors(){ const names=[],colors=[]; picked.forEach(k=>{ if(!names.includes(k.name)){ names.push(k.name); colors.push(k.hex); } }); return {names,colors}; }
+function renderPal(){
+  const {names,colors}=pickedColors(), g=document.getElementById("myDabs");
+  const have=[...g.children].map(c=>c.dataset.hex);
+  // 빠진 색은 지우고, 새로 고른 색만 떨어뜨리기
+  [...g.children].forEach(c=>{ if(!colors.includes(c.dataset.hex)) c.remove(); });
+  [...g.children].forEach((c,i)=>{ c.setAttribute("cx",SPOTS[i][0]); c.setAttribute("cy",SPOTS[i][1]); });
+  colors.forEach(hex=>{ if(have.includes(hex)) return; const i=g.children.length; if(i>=SPOTS.length) return;
+    const c=document.createElementNS(NS,"circle"); c.dataset.hex=hex; c.setAttribute("class","dab");
+    c.setAttribute("cx",SPOTS[i][0]); c.setAttribute("cy",SPOTS[i][1]); c.setAttribute("r",18); c.setAttribute("fill",hex); g.appendChild(c); });
+  const slots=document.getElementById("slots").children; [...slots].forEach((c,i)=>c.style.opacity=i<g.children.length?0:1);
+  document.getElementById("palhint").textContent = names.length ? names.join(" · ") : "단어를 고르면 팔레트에 물감이 짜여요";
+}
 findBtn.onclick=()=>{
-  const colors=[]; const names=[];
-  picked.forEach(k=>{ if(!names.includes(k.name)){ names.push(k.name); colors.push(k.hex); } });
-  const g=document.getElementById("myDabs"); g.innerHTML="";
-  colors.slice(0,SPOTS.length).forEach((hex,i)=>{
-    const c=document.createElementNS("http://www.w3.org/2000/svg","circle");
-    c.setAttribute("cx",SPOTS[i][0]); c.setAttribute("cy",SPOTS[i][1]); c.setAttribute("r",colors.length>6?16:19);
-    c.setAttribute("fill",hex); c.setAttribute("class","dab"); c.style.animationDelay=(i*.08)+"s"; g.appendChild(c);
-  });
+  const {names}=pickedColors();
   document.getElementById("rTitle").textContent = names.length===1 ? `지금 내 마음은 ${names[0]}빛이에요` : `지금 내 마음엔 ${names.length}가지 색이 있어요`;
   document.getElementById("rNames").textContent = names.join(" · ");
   result.hidden=false; findBtn.hidden=true; chipsEl.hidden=true;
