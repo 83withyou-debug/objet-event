@@ -197,6 +197,15 @@ body{position:relative}
 @media (prefers-reduced-motion:no-preference){.deco svg{animation:bob 7s ease-in-out infinite alternate}
   @keyframes bob{to{translate:0 -10px}}}
 
+
+/* brand links */
+.more{font-family:var(--hand);font-size:22px;color:var(--ink);margin-bottom:4px}
+.links{display:grid;gap:8px;width:100%;max-width:340px;justify-self:center;margin-bottom:18px}
+.links a{display:flex;justify-content:space-between;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:12px 18px;box-shadow:0 3px 12px rgba(116,87,181,.07)}
+.links a span{color:var(--accent)}
+.links a:hover{border-color:var(--accent)}
+.links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
 /* sticky CTA */
 .sticky{position:fixed;left:0;right:0;bottom:0;padding:12px max(20px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
   background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:5}
@@ -415,7 +424,12 @@ body{position:relative}
 
   <footer>
     <span class="logo">OBJET</span>
-    <span>Instagram @objet_essential</span>
+    <p class="more">OBJET를 더 알고 싶다면</p>
+    <nav class="links" aria-label="OBJET 바로가기">
+      <a href="https://www.instagram.com/objet_essential/" target="_blank" rel="noopener">인스타그램 @objet_essential <span aria-hidden="true">→</span></a>
+      <a href="https://objetessential.wixsite.com/objet" target="_blank" rel="noopener">OBJET 홈페이지 <span aria-hidden="true">→</span></a>
+      <a href="https://smartstore.naver.com/dream_fty" target="_blank" rel="noopener">네이버 스마트스토어 구경하기 <span aria-hidden="true">→</span></a>
+    </nav>
     <span>© 2026 OBJET</span>
   </footer>
 </main>
