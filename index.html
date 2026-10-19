@@ -136,6 +136,19 @@ section{padding-block:56px 0;display:grid;gap:16px}
 .reviews{cursor:grab}.reviews.drag{cursor:grabbing;scroll-snap-type:none}.reviews.drag img{pointer-events:none}
 .rv img{-webkit-user-drag:none;user-select:none}
 
+
+/* Q&A */
+.qalist{display:grid;gap:10px}
+.qa{background:var(--paper);border-radius:16px;box-shadow:0 4px 18px rgba(116,87,181,.07);overflow:hidden}
+.qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:16px 18px;font-weight:500;font-size:15px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";margin-left:auto;font-size:20px;color:var(--accent);transition:transform .2s}
+.qa[open] summary::after{transform:rotate(45deg)}
+.qa .q{font-family:var(--hand);font-size:22px;color:var(--accent);line-height:1}
+.qa p{padding:0 18px 18px 46px;color:var(--muted);font-size:14px;line-height:1.75}
+.qa p a{color:var(--accent);font-weight:500}
+.qa summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+
 /* form */
 form{display:grid;gap:18px}
 .field{display:grid;gap:6px}
@@ -363,6 +376,21 @@ body{position:relative}
       <svg class="flower" style="width:40px;height:40px"><use href="#flower"/></svg>
       <h3>답장이 잘 도착했어요</h3>
       <p style="color:var(--muted)">남겨주신 연락처로 곧 안내를 보내드릴게요.<br>나를 챙기는 시간, 함께 시작해요.</p>
+    </div>
+  </section>
+
+  <!-- Q&A -->
+  <section>
+    <span class="eyebrow" style="--wash:var(--petal-2)">궁금한 점</span>
+    <h2>마음팔레트 <span class="wash" style="--wash:var(--petal-2)">Q &amp; A</span></h2>
+    <div class="qalist">
+      <details class="qa"><summary><span class="q">Q.</span>마음팔레트는 어떤 체험인가요?</summary><p>색을 통해 나의 감정과 마음을 돌아보고, 나 자신을 조금 더 알아가는 체험이에요. 🎨</p></details>
+      <details class="qa"><summary><span class="q">Q.</span>누구나 참여할 수 있나요?</summary><p>서울·경기 거주 20세~39세 중 나의 마음을 알아보고 싶은 분이라면 누구나 관심을 가지고 참여할 수 있어요.</p></details>
+      <details class="qa"><summary><span class="q">Q.</span>체험은 어떻게 진행되나요?</summary><p>이벤트 안내에 따라 마음팔레트 체험을 진행하며, 나의 감정과 마음을 색으로 표현해 보는 시간을 가져요.</p></details>
+      <details class="qa"><summary><span class="q">Q.</span>참여 비용은 얼마인가요?</summary><p>이번 이벤트에서는 15만 원 상당의 마음팔레트 무료 체험 기회를 제공해요. 🎁</p></details>
+      <details class="qa"><summary><span class="q">Q.</span>참여자 선물은 무엇인가요?</summary><p>이벤트 참여자에게 텀블러를 선물로 드려요. 취향에 맞는 컬러와 키링 조합으로 특별함을 더해 보세요. 🥤</p></details>
+      <details class="qa"><summary><span class="q">Q.</span>어떻게 신청하나요?</summary><p>이벤트 페이지의 <a href="#apply">초대장에 답장하기</a>에서 내용을 작성하신 후 <b>무료로 신청하기</b> 버튼으로 신청해 주세요.</p></details>
+      <details class="qa"><summary><span class="q">Q.</span>선정 결과는 어디서 확인하나요?</summary><p>선정 결과는 작성해 주신 연락처로 개별 연락을 드려요.</p></details>
     </div>
   </section>
 
