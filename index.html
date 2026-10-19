@@ -149,6 +149,23 @@ section{padding-block:56px 0;display:grid;gap:16px}
 .qa p a{color:var(--accent);font-weight:500}
 .qa summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 
+
+/* grouped keyword picker */
+.groups{display:grid;gap:10px}
+.grp{border-radius:16px;padding:12px 12px 14px;background:color-mix(in srgb,var(--g) 11%,var(--paper));border:1px solid color-mix(in srgb,var(--g) 28%,var(--paper));display:grid;gap:10px}
+.grph{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+.gdots{display:inline-flex}.gdots i{width:12px;height:12px;border-radius:50%;margin-right:-4px;box-shadow:0 0 0 2px var(--paper)}
+.gdots{padding-right:4px}
+.crow{display:grid;grid-template-columns:86px 1fr;gap:8px;align-items:start}
+.cname{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink);padding-top:6px;line-height:1.3;min-width:0}
+.cname i{flex:0 0 auto;width:16px;height:14px;border-radius:55% 45% 60% 40% / 50% 60% 40% 50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.crow .chips{gap:6px;min-width:0}
+.crow .chip{font-size:13px;padding:5px 11px;background:var(--paper)}
+.crow .chip::before{display:none}
+.crow .chip[aria-pressed="true"]{background:var(--c);border-color:color-mix(in srgb,var(--c) 70%,#000);color:var(--ink);font-weight:700}
+.crow .chip.dk[aria-pressed="true"]{color:#fff}
+.crow .chip[aria-pressed="true"]::after{content:"✓";margin-left:4px;font-size:11px}
+
 /* form */
 form{display:grid;gap:18px}
 .field{display:grid;gap:6px}
@@ -272,7 +289,7 @@ body{position:relative}
         </svg>
         <p class="palhint" id="palhint">단어를 고르면 팔레트에 물감이 짜여요</p>
       </div>
-      <div class="chips" id="chips" role="group" aria-label="요즘의 나를 닮은 단어"></div>
+      <div class="groups" id="chips" role="group" aria-label="요즘의 나를 닮은 단어"></div>
       <button class="btn" id="findBtn" type="button" disabled>단어를 3개 이상 골라주세요</button>
       <div class="result" id="result" hidden>
         <span class="eyebrow" style="justify-self:center;--wash:var(--lav)">나의 마음 팔레트</span>
@@ -428,24 +445,44 @@ const PAINTS = [
   ["블루 그레이","#8C9DAE",["고요함","정돈","침착함"]],
   ["블랙","#1E1E22",["시크함","독립성","집중력"]]
 ];
-// 키워드는 한 번씩만 보여주고, 여러 색에 나오는 키워드는 처음 나온 색을 따라가요.
-const KEYWORDS = [];
-const seen = new Set();
-PAINTS.forEach(([name,hex,words],i)=>words.forEach(w=>{ if(!seen.has(w)){ seen.add(w); KEYWORDS.push({w,hex,name,i}); } }));
-// 색이 고르게 섞여 보이도록 순서를 섞되, 매번 같은 순서로
-KEYWORDS.sort((a,b)=>((a.w.charCodeAt(0)*31+a.i*7)%97)-((b.w.charCodeAt(0)*31+b.i*7)%97));
+// 원래 17가지 색을 계열별로 묶어서 보여줘요.
+const GROUPS = [
+  ["핑크 계열","#F2A7BF",["핑크","피치","더스티 로즈"]],
+  ["옐로·오렌지 계열","#F6C77A",["버터 옐로","코랄","테라코타"]],
+  ["그린 계열","#9CC4A6",["민트","세이지 그린"]],
+  ["블루 계열","#8FB4D8",["하늘색","블루 그레이","네이비"]],
+  ["퍼플·와인 계열","#B79AD9",["라벤더","버건디"]],
+  ["브라운·베이지 계열","#B08968",["아이보리","브라운"]],
+  ["그레이·블랙 계열","#6E6E76",["차콜 그레이","블랙"]]
+];
+const PBY = Object.fromEntries(PAINTS.map(([name,hex,words])=>[name,{name,hex,words}]));
 
 const chipsEl = document.getElementById("chips");
 const findBtn=document.getElementById("findBtn"), result=document.getElementById("result");
 const picked = new Map();
-KEYWORDS.forEach(k=>{
-  const b=document.createElement("button");
-  b.type="button"; b.className="chip"; b.textContent=k.w; b.style.setProperty("--c",k.hex); b.setAttribute("aria-pressed","false");
-  b.onclick=()=>{ picked.has(k.w)?picked.delete(k.w):picked.set(k.w,k);
-    b.setAttribute("aria-pressed",picked.has(k.w));
-    const n=picked.size; findBtn.disabled=n<3;
-    findBtn.textContent = n<3 ? `단어를 3개 이상 골라주세요 (${n}/3)` : `내 마음 팔레트 완성하기 (${n}개)`; renderPal(); };
-  chipsEl.appendChild(b);
+GROUPS.forEach(([gname,ghex,members])=>{
+  const box=document.createElement("div"); box.className="grp"; box.style.setProperty("--g",ghex);
+  const h=document.createElement("p"); h.className="grph";
+  h.innerHTML=`<span class="gdots">${members.map(m=>`<i style="background:${PBY[m].hex}"></i>`).join("")}</span>${gname}`;
+  box.appendChild(h);
+  members.forEach(m=>{
+    const p=PBY[m], row=document.createElement("div"); row.className="crow";
+    const lab=document.createElement("span"); lab.className="cname"; lab.innerHTML=`<i style="background:${p.hex}"></i>${p.name}`;
+    const wrap=document.createElement("div"); wrap.className="chips";
+    p.words.forEach(w=>{
+      const key=p.name+"|"+w, k={w,hex:p.hex,name:p.name};
+      const b=document.createElement("button");
+      b.type="button"; b.className="chip"; b.textContent=w; b.style.setProperty("--c",p.hex); b.setAttribute("aria-pressed","false");
+      { const n=parseInt(p.hex.slice(1),16), L=(0.299*(n>>16)+0.587*((n>>8)&255)+0.114*(n&255)); if(L<150) b.classList.add("dk"); }
+      b.onclick=()=>{ picked.has(key)?picked.delete(key):picked.set(key,k);
+        b.setAttribute("aria-pressed",picked.has(key));
+        const n=picked.size; findBtn.disabled=n<3;
+        findBtn.textContent = n<3 ? `단어를 3개 이상 골라주세요 (${n}/3)` : `내 마음 팔레트 완성하기 (${n}개)`; renderPal(); };
+      wrap.appendChild(b);
+    });
+    row.append(lab,wrap); box.appendChild(row);
+  });
+  chipsEl.appendChild(box);
 });
 const SPOTS=[[74,92],[116,58],[168,46],[220,58],[258,96],[232,142],[176,148],[134,104],[196,100],[138,154]];
 const NS="http://www.w3.org/2000/svg";
@@ -505,7 +542,7 @@ form.addEventListener("submit",async e=>{
   if(!document.getElementById("agree").checked) return err.textContent="개인정보 수집·이용에 동의해주세요.";
   err.textContent="";
   const data={ color:COLORS[chosen].name, name:v("name"), age:v("age"), gender:v("gender"), region:v("region"), station:v("station"), phone:v("phone"),
-    insta:v("insta"), words:[...picked.keys()].join(", "), palette:[...new Set([...picked.values()].map(k=>k.name))].join(", "), submittedAt:new Date().toISOString() };
+    insta:v("insta"), words:[...picked.values()].map(k=>k.w).join(", "), palette:[...new Set([...picked.values()].map(k=>k.name))].join(", "), submittedAt:new Date().toISOString() };
   const btn=document.getElementById("submitBtn"); btn.disabled=true; btn.textContent="보내는 중…";
   try{
     if(SHEET_URL) await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(data)});
