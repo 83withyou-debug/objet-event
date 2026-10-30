@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OBJET 소원팔찌 이벤트 · What's my Wish for 2027?</title>
+<meta name="description" content="나의 ID(IDENTITY) 검사와 사주로 읽어낸 당신의 이야기를 컬러·원석·매듭·참으로 엮어, 세상에 하나뿐인 소원팔찌로 만들어 드립니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OBJET 소원팔찌 이벤트 · What's my Wish for 2027?">
+<meta property="og:description" content="당신을 닮은 소원은 어떤 모양일까요? 2027년을 담아 27분께 나만의 소원팔찌를 전해드려요.">
+<meta property="og:image" content="assets/hero-bracelet.jpg">
+<meta name="theme-color" content="#EFE5D2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;family=Gowun+Batang:wght@400;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,700&amp;display=swap" rel="stylesheet">
+<style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:#F6E3E6;word-break:keep-all;overflow-wrap:break-word}
+h1,h2,h3{text-wrap:balance}
+p,td,label{text-wrap:pretty}
+@media (max-width:600px){h1,h2,h3,p{word-break:keep-all}}
+a{color:#B8322F}a:hover{color:#8E2220}
+.stripe{background:#B02E2C url(assets/knit-red.jpg) repeat;background-size:160px}
+.knit-cream{background:#EFE5D2 url(assets/knit-cream.jpg) repeat;background-size:360px}
+.knit-pink{background:#F9CDCD url(assets/knit-pink.jpg) repeat;background-size:360px}
+.btn[style*="background-color: #B8322F"]{background-image:url(assets/knit-red.jpg);background-size:160px;text-shadow:0 1px 2px rgba(60,10,10,.5)}
+.ico{position:absolute;height:auto;pointer-events:none;filter:drop-shadow(0 3px 4px rgba(80,50,30,.28))}
+.ttl{display:block;height:auto;filter:drop-shadow(0 3px 3px rgba(70,40,20,.3))}
+.dots{background-color:#F4D6DA;background-image:radial-gradient(#FFFFFF 2.2px,transparent 2.6px),radial-gradient(#FFFFFF 1.4px,transparent 1.8px);background-size:64px 64px,38px 38px;background-position:0 0,19px 27px}
+.fld{display:flex;flex-direction:column;gap:8px}
+.fld label,.lbl{font-size:14px;font-weight:700;color:#2A2224}
+.fld input,.fld select,.fld textarea{font:inherit;font-size:16px;color:#2A2224;background:#FFFDFB;border:1px solid #D9B9BE;border-radius:12px;padding:13px 14px;min-height:48px;box-sizing:border-box;width:100%}
+.fld textarea{min-height:110px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid #B8322F;outline-offset:1px;border-color:#B8322F}
+.opt:focus-visible,.btn:focus-visible{outline:2px solid #2A2224;outline-offset:2px}
+.btn:hover{filter:brightness(1.08)}
+.yarn-red,.yarn{background:repeating-linear-gradient(118deg,#B8322F 0 2px,#D3514A 2px 3.5px,#99251F 3.5px 5px);-webkit-background-clip:text;background-clip:text;color:#B8322F;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1.5px 0 rgba(70,20,20,.35)) drop-shadow(0 6px 8px rgba(90,50,30,.22))}
+.yarn-brown{background:repeating-linear-gradient(62deg,#3B2420 0 2px,#5C3B30 2px 3.5px,#2A1914 3.5px 5px);-webkit-background-clip:text;background-clip:text;color:#3B2420;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1.5px 0 rgba(40,20,10,.3)) drop-shadow(0 5px 7px rgba(60,40,20,.18))}
+.yarn-green{background:repeating-linear-gradient(62deg,#2E5E45 0 2px,#4A8565 2px 3.5px,#22473A 3.5px 5px);-webkit-background-clip:text;background-clip:text;color:#2E5E45;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1.5px 0 rgba(20,50,30,.35)) drop-shadow(0 5px 7px rgba(40,60,40,.2))}
+.stitch{outline:2px dashed rgba(184,50,47,.32);outline-offset:-10px}
+.knit-in{position:relative;z-index:1}
+@keyframes caseIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+.case-in{animation:caseIn .45s ease}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl"><div style="font-family: 'Noto Sans KR', system-ui, sans-serif; color: #2A2224; background: #F6E3E6; width: 100%; overflow: hidden">
+
+<!-- 상단 스트라이프 + 헤더 -->
+<div class="stripe" style="height: 22px"></div>
+<header style="background: #FFFBF7; border-bottom: 1px solid #EBCFD3">
+<div style="max-width: 1120px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<div style="display: flex; align-items: baseline; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em">OBJET</span>
+<span style="font-family: 'Gowun Batang', serif; font-size: 15px; color: #6E5A5E">오브제</span>
+</div>
+<a class="btn" href="#apply" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #2A2224; color: #FFFBF7; text-decoration: none; font-size: 14px; font-weight: 700">이벤트 신청하기</a>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="knit-cream" style="position: relative; padding: 96px 24px 112px">
+<img class="ico" src="assets/i-candycane.webp" alt="" aria-hidden="true" style="left: 4%; top: 16px; width: 46px">
+<img class="ico" src="assets/i-star.webp" alt="" aria-hidden="true" style="left: 47%; top: 22px; width: 44px">
+<img class="ico" src="assets/i-tree.webp" alt="" aria-hidden="true" style="right: 5%; top: 10px; width: 60px">
+<img class="ico" src="assets/i-holly.webp" alt="" aria-hidden="true" style="left: 5%; bottom: 18px; width: 64px">
+<img class="ico" src="assets/i-gift.webp" alt="" aria-hidden="true" style="left: 46%; bottom: 20px; width: 52px">
+<img class="ico" src="assets/i-stocking.webp" alt="" aria-hidden="true" style="right: 6%; bottom: 14px; width: 58px">
+<div class="knit-in" style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span style="align-self: flex-start; padding: 8px 14px; border-radius: 999px; background: #2E5E45; color: #FFFBF7; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; outline: 1.5px dashed rgba(255,251,247,0.7); outline-offset: -5px; box-shadow: 0 3px 6px rgba(30,60,40,0.25)">WISH BRACELET EVENT · 2026 WINTER</span>
+<div role="img" aria-label="What's my Wish for 2027?" style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; max-width: 380px">
+<img class="ttl" src="assets/t-whatsmy.webp" alt="" style="width: 82%; max-width: 310px">
+<img class="ttl" src="assets/t-wish.webp" alt="" style="width: 100%; max-width: 380px; margin: -2px 0 -2px -6px">
+<img class="ttl" src="assets/t-for2027.webp" alt="" style="width: 60%; max-width: 230px">
+<img class="ttl" src="assets/t-wave.webp" alt="" style="width: 56%; max-width: 210px; margin-top: 4px">
+</div>
+<h1 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.4">당신을 닮은 소원은<br>어떤 모양일까요?</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.75; color: #5E4B4F; max-width: 520px">나의 ID(IDENTITY) 검사와 사주로 읽어낸 당신의 이야기를 컬러·원석·매듭·참으로 엮어, 세상에 하나뿐인 소원팔찌로 만들어 드립니다.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px">
+<a class="btn" href="#design" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 28px; border-radius: 999px; background-color: #B8322F; color: #FFFBF7; text-decoration: none; font-size: 16px; font-weight: 700">내 팔찌 미리 살펴보기</a>
+<a class="btn" href="#story" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 24px; border-radius: 999px; background: #FFFBF7; color: #2A2224; border: 1.5px solid #2A2224; text-decoration: none; font-size: 16px; font-weight: 700">이야기 먼저 보기</a>
+</div>
+</div>
+
+<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; padding-top: 40px">
+<div style="position: relative; width: 100%; max-width: 420px">
+<div style="position: absolute; inset: 18px -14px -14px 18px; background: #E9A9B3; border-radius: 6px; transform: rotate(4deg)"></div>
+<div style="position: relative; background: #FFFBF7; border-radius: 6px; padding: 52px 28px 28px; transform: rotate(-2deg); box-shadow: 0 18px 40px rgba(110,40,50,0.18)">
+<svg viewBox="0 0 200 112" width="170" aria-hidden="true" style="position: absolute; top: -58px; left: 50%; margin-left: -85px"><path d="M100 54 C72 8,18 12,28 46 C36 72,80 66,100 54 Z" fill="#1E1A1B"></path><path d="M100 54 C128 8,182 12,172 46 C164 72,120 66,100 54 Z" fill="#1E1A1B"></path><path d="M52 40 C60 30,78 34,92 50" fill="none" stroke="#4A4244" stroke-width="2.5" stroke-linecap="round"></path><path d="M148 40 C140 30,122 34,108 50" fill="none" stroke="#4A4244" stroke-width="2.5" stroke-linecap="round"></path><path d="M96 58 C88 80,72 96,58 110 L72 112 C84 98,96 82,101 62 Z" fill="#1E1A1B"></path><path d="M104 58 C112 80,128 96,142 110 L128 112 C116 98,104 82,99 62 Z" fill="#1E1A1B"></path><ellipse cx="100" cy="55" rx="10" ry="9" fill="#2B2526"></ellipse></svg>
+<img src="assets/hero-bracelet.jpg" alt="레드 줄에 오렌지·블루 글라스 비즈와 담수 진주를 엮은 슬라이딩 매듭 소원팔찌" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
+<p style="margin: 8px 0 0; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">made for you, by your wish</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 인트로 편지 -->
+<section style="background: #FFFBF7; padding: 96px 24px">
+<div style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
+<img class="ttl" src="assets/t-dearyou.webp" alt="Dear you," style="width: 62%; max-width: 250px">
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.45">요즘, 당신이 가장 바라는 것은<br>무엇인가요?</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.95; color: #5E4B4F">어쩌면 조금 더 나를 믿고 싶은 마음일 수도 있고,<br>새로운 시작을 앞두고 용기가 필요한 순간일 수도 있어요.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.95; color: #5E4B4F">우리는 각자 다른 성향을 가지고,<br>서로 다른 소원을 품고 살아갑니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 21px; line-height: 1.8; color: #2A2224">당신이 품고 있는 마음을<br>하나의 작은 물건에 담아본다면 어떨까요?</p>
+<svg width="56" height="56" viewBox="-16 -16 32 32" aria-hidden="true"><path d="M0,-14 L4.1,-4.3 L13.3,-4.3 L5.9,1.6 L8.7,11.3 L0,5.5 L-8.7,11.3 L-5.9,1.6 L-13.3,-4.3 L-4.1,-4.3 Z" fill="#C9A86A"></path></svg>
+</div>
+</section>
+
+<!-- 세 가지 이야기 -->
+<section id="story" class="knit-pink" style="position: relative; padding: 112px 24px 104px">
+<img class="ico" src="assets/i-gingerbread.webp" alt="" aria-hidden="true" style="right: 5%; top: 18px; width: 62px">
+<img class="ico" src="assets/i-candycane.webp" alt="" aria-hidden="true" style="left: 6%; top: 22px; width: 44px">
+<div class="knit-in" style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #2E5E45">THREE STORIES, ONE BRACELET</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.4">세 가지 이야기가<br>하나의 팔찌가 됩니다.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<div class="stitch" style="background: #FFFBF7; border-radius: 6px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 28px rgba(110,40,50,0.10); transform: rotate(-1deg)">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 48px; color: #E9A9B3; line-height: 1">01</span>
+<span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">Looking back, 2026</span>
+<h3 style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 700">2026년 돌아보는 나</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.75; color: #5E4B4F">나의 ID(IDENTITY) 검사로 올 한 해, 내가 어떤 마음으로 움직이고 무엇에 흔들렸는지 차분히 돌아봐요.</p>
+</div>
+<div class="stitch" style="background: #FFFBF7; border-radius: 6px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 28px rgba(110,40,50,0.10); transform: rotate(1deg)">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 48px; color: #9CC1AA; line-height: 1">02</span>
+<span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">Getting ready, 2027</span>
+<h3 style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 700">2027년 준비하는 나</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.75; color: #5E4B4F">사주로 다가올 2027년의 흐름을 읽고, 새해의 나에게 필요한 기운이 무엇인지 살펴봐요.</p>
+</div>
+<div class="stitch" style="background: #2A2224; color: #FFFBF7; border-radius: 6px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 10px 28px rgba(110,40,50,0.18); transform: rotate(-0.6deg)">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 48px; color: #E07C93; line-height: 1">03</span>
+<span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #E8D7DA">Made just for me</span>
+<h3 style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 700">나만을 위한 소원팔찌</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.75; color: #E8D7DA">두 이야기를 컬러·원석·매듭·참으로 엮어, 손목 위에 나만의 소원을 묶어 드려요.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 이벤트 안내 -->
+<section id="event" style="background: #FFFBF7; padding: 96px 24px">
+<div style="max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #B8322F">EVENT INFO</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 36px)">이벤트 안내</h2>
+</div>
+<div style="border-top: 2px solid #2A2224">
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">신청 기간</span><span style="flex: 1 1 280px; color: #5E4B4F">2026년 11월 ~ 2027년 1월</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">혜택</span><span style="flex: 1 1 280px; color: #5E4B4F">나의 ID(IDENTITY) 검사·사주 분석 기반 맞춤 소원팔찌 제작</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">선정 인원</span><span style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; color: #B8322F">27명</span><span style="font-size: 14px; line-height: 1.6; color: #6E5A5E">다가올 2027년을 담아, 27분께 나만의 소원팔찌를 전해드려요.</span></span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">발표</span><span style="flex: 1 1 280px; color: #5E4B4F">이벤트 마감 후 개별 연락</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+<div style="background: #F6E3E6; border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: center"><span style="flex: none; width: 36px; height: 36px; border-radius: 50%; background-color: #B8322F; color: #FFFBF7; display: flex; align-items: center; justify-content: center; font-weight: 700">1</span><span style="font-weight: 500">팔찌 이야기 살펴보기</span></div>
+<div style="background: #F6E3E6; border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: center"><span style="flex: none; width: 36px; height: 36px; border-radius: 50%; background-color: #B8322F; color: #FFFBF7; display: flex; align-items: center; justify-content: center; font-weight: 700">2</span><span style="font-weight: 500">신청서 작성</span></div>
+<div style="background: #F6E3E6; border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: center"><span style="flex: none; width: 36px; height: 36px; border-radius: 50%; background-color: #B8322F; color: #FFFBF7; display: flex; align-items: center; justify-content: center; font-weight: 700">3</span><span style="font-weight: 500">신청 완료</span></div>
+</div>
+</div>
+</section>
+
+<div class="stripe" style="height: 22px"></div>
+
+<!-- 팔찌 살펴보기 (간접 체험) -->
+<section id="design" class="knit-cream" style="position: relative; padding: 112px 24px 104px">
+<img class="ico" src="assets/i-star.webp" alt="" aria-hidden="true" style="left: 5%; top: 26px; width: 46px">
+<img class="ico" src="assets/i-snowman.webp" alt="" aria-hidden="true" style="right: 5%; top: 16px; width: 64px">
+<div class="knit-in" style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span class="yarn-green" style="align-self: center; font-family: 'Pacifico', cursive; font-size: 28px; line-height: 1.5; padding: 0 0.1em">Read your bracelet</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.4">팔찌 하나에 담기는<br>네 가지 나의 이야기</h2>
+<p style="margin: 0; max-width: 620px; font-size: 16px; line-height: 1.75; color: #5E4B4F">나의 ID(IDENTITY) 검사와 사주 분석 결과를 바탕으로 컬러, 원석, 매듭, 참 장식을 조합해 나만의 소원팔찌를 제작합니다.<br>팔찌의 각 부분을 눌러, 어떤 항목이 나와 어떻게 이어지는지 살펴보세요.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<!-- 팔찌 이미지 + 포인트 -->
+<div class="stitch" style="flex: 1 1 360px; min-width: 0; background: #FFFBF7; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 14px 34px rgba(110,40,50,0.12)">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: #2E5E45">TAP THE BRACELET</span>
+<div style="position: relative; width: 100%; max-width: 380px; align-self: center">
+<svg viewBox="0 0 320 340" role="img" aria-label="소원팔찌 예시: 줄, 원석, 매듭, 참 장식으로 이루어져 있어요" style="width: 100%; height: auto; display: block">
+<g opacity="{{cordOp}}">
+<circle cx="160" cy="160" r="110" fill="none" stroke="rgba(42,34,36,0.22)" stroke-width="9"></circle>
+<circle cx="160" cy="160" r="110" fill="none" stroke="{{cordHex}}" stroke-width="6"></circle>
+</g>
+<ellipse cx="160" cy="262" rx="62" ry="30" fill="#FBE3E8" stroke="#B8322F" stroke-width="1.5" stroke-dasharray="4 4" opacity="{{stoneHalo}}"></ellipse>
+<g opacity="{{stoneOp}}">
+<circle cx="223.1" cy="250.1" r="5" fill="#C9A86A"></circle>
+<circle cx="96.9" cy="250.1" r="5" fill="#C9A86A"></circle>
+<circle cx="197.6" cy="263.4" r="13" fill="{{stoneHex}}" stroke="#9E3F57" stroke-width="1.4"></circle>
+<circle cx="193.6" cy="259.4" r="3.5" fill="#FFFFFF" fill-opacity="0.55"></circle>
+<circle cx="122.4" cy="263.4" r="13" fill="{{stoneHex}}" stroke="#9E3F57" stroke-width="1.4"></circle>
+<circle cx="118.4" cy="259.4" r="3.5" fill="#FFFFFF" fill-opacity="0.55"></circle>
+<circle cx="160" cy="270" r="14" fill="{{stoneHex}}" stroke="#9E3F57" stroke-width="1.4"></circle>
+<circle cx="155.5" cy="265.5" r="4" fill="#FFFFFF" fill-opacity="0.55"></circle>
+</g>
+<g opacity="{{charmOp}}">
+<line x1="160" y1="284" x2="160" y2="292" stroke="#C9A86A" stroke-width="2"></line>
+<g transform="translate(160 307)"><path d="{{charmPath}}" fill="#C9A86A" stroke="#A88A4E" stroke-width="0.8"></path></g>
+</g>
+<g opacity="{{knotOp}}" transform="translate(160 50)">
+<path d="{{knotTails}}" fill="none" stroke="{{cordHex}}" stroke-width="4" stroke-linecap="round"></path>
+<path d="{{knotPath}}" fill="{{cordHex}}" stroke="rgba(42,34,36,0.45)" stroke-width="1.2"></path>
+</g>
+</svg>
+<sc-for list="{{pins}}" as="item" hint-placeholder-count="4">
+<button class="opt" type="button" aria-label="{{item.aria}}" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="{{item.style}}">{{item.no}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{tabs}}" as="item" hint-placeholder-count="4">
+<button class="opt" type="button" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="{{item.style}}"><span style="font-family: 'Playfair Display', serif; font-weight: 900">{{item.no}}</span> {{item.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<!-- 설명 패널 -->
+<div class="stitch" style="flex: 999 1 520px; min-width: 0; background: #FFFBF7; border-radius: 8px; padding: 40px 36px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 14px 34px rgba(110,40,50,0.12)">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 40px; color: #E9A9B3; line-height: 1">{{p.no}}</span>
+<span style="padding: 6px 12px; border-radius: 999px; background: #2E5E45; color: #FFFBF7; font-size: 13px; font-weight: 700">{{p.source}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">{{p.en}}</span>
+<h3 style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 28px; font-weight: 700">{{p.label}}</h3>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; font-weight: 700; color: #B8322F">나와의 연결</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #2A2224">{{p.connect}}</p>
+</div>
+<div style="background: #F6E3E6; border-radius: 12px; padding: 14px 16px; font-size: 15px; line-height: 1.6; color: #5E4B4F">{{p.example}}</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 14px; font-weight: 700; color: #2A2224">이런 {{p.unit}} 중에서 나에게 맞게 담겨요</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px">
+<sc-for list="{{p.items}}" as="item" hint-placeholder-count="8">
+<div style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 10px 12px; border-radius: 12px; border: 1px solid #EBD3D6; background: #FFFDFB; box-sizing: border-box">
+<sc-if value="{{item.isColor}}" hint-placeholder-val="{{ true }}"><span style="{{item.dot}}"></span></sc-if>
+<sc-if value="{{item.isIcon}}" hint-placeholder-val="{{ false }}"><span style="position: relative; flex: none; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="-22 -18 44 44" aria-hidden="true" style="position: absolute; left: 0; top: 0"><path d="{{item.tails}}" fill="none" stroke="#B8322F" stroke-width="3" stroke-linecap="round"></path><path d="{{item.path}}" fill="{{item.iconFill}}" fill-rule="{{item.rule}}"></path></svg><span style="position: relative; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 14px; line-height: 1; color: #2A2224">{{item.glyph}}</span></span></sc-if>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 14px">{{item.name}}</span><span style="font-size: 12px; color: #6E5A5E">{{item.word}}</span></span>
+</div>
+</sc-for>
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #6E5A5E">※ 최종 조합은 분석 결과를 바탕으로 오브제가 제안하며, 소재 수급과 제작 가능 여부에 따라 조정될 수 있습니다.</p>
+<a class="btn" href="#apply" style="display: flex; align-items: center; justify-content: center; min-height: 54px; border-radius: 999px; background-color: #B8322F; color: #FFFBF7; text-decoration: none; font-size: 16px; font-weight: 700">나의 팔찌 이야기 신청하기</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 제작사례 -->
+<section id="case" style="position: relative; background: #FFFBF7; padding: 112px 24px 96px">
+<img class="ico" src="assets/i-holly.webp" alt="" aria-hidden="true" style="left: 5%; top: 24px; width: 58px">
+<img class="ico" src="assets/i-santa.webp" alt="" aria-hidden="true" style="right: 5%; top: 16px; width: 64px">
+<div class="knit-in" style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span class="yarn-brown" style="align-self: center; font-family: 'Pacifico', cursive; font-size: 28px; line-height: 1.5; padding: 0 0.1em">A wish, made real</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px)">제작사례</h2>
+</div>
+
+<sc-if value="{{isCase1}}" hint-placeholder-val="{{ true }}">
+<div class="case-in" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span style="padding: 7px 14px; border-radius: 999px; background: #2A2224; color: #FFFBF7; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em">CASE 01.</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.4">행운을 맞이하는 성장의 팔찌</h2>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 18px; line-height: 1.75; color: #5E4B4F">나의 중심을 지키며, 새로운 행운을 맞이하는 사람</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; padding-top: 16px">
+<div style="width: 100%; max-width: 460px">
+<div onPointerDown="{{swipeStart}}" onPointerUp="{{swipeEnd}}" style="position: relative; width: 100%; touch-action: pan-y; cursor: grab; user-select: none">
+<div style="position: absolute; inset: 16px -12px -12px 16px; background: #E9A9B3; border-radius: 6px; transform: rotate(3deg)"></div>
+<div style="position: relative; background: #FFFFFF; border-radius: 6px; padding: 14px 14px 52px; transform: rotate(-1.5deg); box-shadow: 0 18px 40px rgba(110,40,50,0.18)">
+<img draggable="false" src="assets/case1.jpg" alt="브라운 줄에 레드 구슬, 그린 원통형 구슬, 실버 네잎클로버, 화이트 비즈를 엮은 소원팔찌" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
+<span style="position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: #4A3F42">for a brave new 2027</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px">
+<button class="btn" type="button" aria-label="이전 사례" onClick="{{prevCase}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid #2A2224; background: #FFFBF7; color: #2A2224; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<div style="display: flex; gap: 8px; align-items: center">
+<sc-for list="{{caseDots}}" as="item" hint-placeholder-count="3">
+<button type="button" aria-label="{{item.aria}}" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="{{item.style}}"></button>
+</sc-for>
+</div>
+<button class="btn" type="button" aria-label="다음 사례" onClick="{{nextCase}}" style="width: 48px; height: 48px; border-radius: 50%; border: 0; background: #2A2224; color: #FFFBF7; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+</div>
+<p style="margin: 12px 0 0; text-align: center; font-size: 13px; color: #6E5A5E">사진을 옆으로 넘기면 다음 사례가 보여요</p>
+</div>
+</div>
+
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 22px">
+<div style="background: #F6E3E6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 15px; color: #B8322F">01. ID 아이디</span>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 1.6; color: #2A2224">안정과 신뢰를 중요하게 생각하는 identity</p>
+</div>
+<div style="background: #F6E3E6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 15px; color: #2E5E45">02. 사주</span>
+<div style="display: flex; flex-direction: column; gap: 7px; font-size: 14px; line-height: 1.5; color: #2A2224">
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #8A5A3C">토(土)</span>안정적인 기반과 중심</span>
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #2E5E45">목(木)</span>성장과 새로운 가능성</span>
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #B3122E">화(火)</span>열정과 행동할 용기</span>
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #6E6F73">금(金)</span>정돈과 자기확신</span>
+</div>
+</div>
+</div>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: #2E5E45">WHAT'S INSIDE</span>
+<div style="overflow-x: auto; border-top: 2px solid #2A2224">
+<table style="width: 100%; min-width: 440px; border-collapse: collapse; font-size: 15px">
+<thead>
+<tr style="text-align: left; color: #6E5A5E; font-size: 13px">
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">선택 항목</th>
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">요소</th>
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">상징적 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">줄 컬러</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; background: #8A5A3C; flex: none"></span>브라운</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">안정, 현실감, 중심</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">원석 ①</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; background: #B3122E; flex: none"></span>레드 구슬</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">열정, 용기, 새로운 시작</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">원석 ②</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 12px; height: 18px; border-radius: 3px; background: #8FCB9E; flex: none"></span>그린 원통형 구슬</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">성장, 균형, 가능성</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">장식</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 12px; height: 18px; border-radius: 3px; background: #F4F1EA; box-shadow: inset 0 0 0 1px #CFC6B8; flex: none"></span>화이트 원통형 비즈</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">정돈, 순수함, 조화</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">참</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="-12 -12 24 24" aria-hidden="true" style="flex: none"><path d="M-5.5,-6 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z M0.5,0 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z M-5.5,6 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z M-11.5,0 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z" fill="#A7A9AC"></path></svg>실버 네잎클로버</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">행운, 기회, 희망</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">매듭</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3">슬라이딩 매듭</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">유연함, 실용성</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="stitch" style="position: relative; max-width: 820px; width: 100%; margin: 0 auto; box-sizing: border-box; background: #F6E3E6; border-radius: 6px; padding: 56px clamp(24px, 6vw, 64px) 48px; display: flex; flex-direction: column; gap: 20px">
+<svg viewBox="0 0 200 112" width="120" aria-hidden="true" style="position: absolute; top: -40px; left: 50%; margin-left: -60px"><path d="M100 54 C72 8,18 12,28 46 C36 72,80 66,100 54 Z" fill="#1E1A1B"></path><path d="M100 54 C128 8,182 12,172 46 C164 72,120 66,100 54 Z" fill="#1E1A1B"></path><path d="M96 58 C88 80,72 96,58 110 L72 112 C84 98,96 82,101 62 Z" fill="#1E1A1B"></path><path d="M104 58 C112 80,128 96,142 110 L128 112 C116 98,104 82,99 62 Z" fill="#1E1A1B"></path><ellipse cx="100" cy="55" rx="10" ry="9" fill="#2B2526"></ellipse></svg>
+<span class="yarn-brown" style="align-self: flex-start; font-family: 'Pacifico', cursive; font-size: 24px; line-height: 1.5; padding: 0 0.1em">A letter with your bracelet</span>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">때로는 계획대로 되지 않는 순간도 있었고, 마음처럼 풀리지 않는 날들도 있었겠지만 그 모든 시간이 모여 지금의 당신을 만들었을 거예요. 잘 버텨온 날들, 묵묵히 애써온 순간들까지 모두 소중한 성장의 시간이었기를 바랍니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">다가올 2027년에는 조금 더 나를 믿고, 새로운 가능성을 향해 나아가기를 바라는 마음으로 이 팔찌를 만들었습니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">따뜻한 브라운 컬러에는 어떤 순간에도 나를 잃지 않고 단단하게 중심을 지켜가기를 바라는 마음을 담았습니다. 그 위에 더해진 그린은 아직 펼쳐지지 않은 가능성과 천천히 피어날 성장의 시간을, 레드는 망설임 앞에서도 다시 시작할 수 있는 용기와 뜨거운 열정을 의미합니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">그리고 손목 위에 살며시 자리한 네잎클로버에는 특별한 소망을 담았습니다. 애써 찾아 헤매지 않아도 좋은 인연과 기회가 자연스럽게 찾아오고, 평범한 하루 속에서도 예상하지 못한 행복을 발견할 수 있기를.</p>
+<span style="align-self: flex-end; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">— from OBJET</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isCase2}}" hint-placeholder-val="{{ false }}">
+<div class="case-in" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span style="padding: 7px 14px; border-radius: 999px; background: #2A2224; color: #FFFBF7; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em">CASE 02.</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.4">나만의 답을 찾아가는 지혜의 팔찌</h2>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 18px; line-height: 1.75; color: #5E4B4F">복잡한 생각을 내려놓고, 내 안의 지혜를 믿는 사람</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; padding-top: 16px">
+<div style="width: 100%; max-width: 460px">
+<div onPointerDown="{{swipeStart}}" onPointerUp="{{swipeEnd}}" style="position: relative; width: 100%; touch-action: pan-y; cursor: grab; user-select: none">
+<div style="position: absolute; inset: 16px 16px -12px -12px; background: #B9CBDD; border-radius: 6px; transform: rotate(-3deg)"></div>
+<div style="position: relative; background: #FFFFFF; border-radius: 6px; padding: 14px 14px 52px; transform: rotate(1.5deg); box-shadow: 0 18px 40px rgba(40,60,90,0.18)">
+<img draggable="false" src="assets/case2.jpg" alt="블랙 코드에 아쿠아마린, 클리어 쿼츠, 블랙 원석을 엮은 슬라이딩 매듭 소원팔찌" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
+<span style="position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: #4A3F42">your own answer, your own pace</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px">
+<button class="btn" type="button" aria-label="이전 사례" onClick="{{prevCase}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid #2A2224; background: #FFFBF7; color: #2A2224; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<div style="display: flex; gap: 8px; align-items: center">
+<sc-for list="{{caseDots}}" as="item" hint-placeholder-count="3">
+<button type="button" aria-label="{{item.aria}}" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="{{item.style}}"></button>
+</sc-for>
+</div>
+<button class="btn" type="button" aria-label="다음 사례" onClick="{{nextCase}}" style="width: 48px; height: 48px; border-radius: 50%; border: 0; background: #2A2224; color: #FFFBF7; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+</div>
+<p style="margin: 12px 0 0; text-align: center; font-size: 13px; color: #6E5A5E">사진을 옆으로 넘기면 다음 사례가 보여요</p>
+</div>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 22px">
+<div style="background: #F6E3E6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 15px; color: #B8322F">01. ID 아이디</span>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 1.6; color: #2A2224">나만의 답을 찾아가는 identity</p>
+</div>
+<div style="background: #F6E3E6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 15px; color: #2E5E45">02. 사주</span>
+<div style="display: flex; flex-direction: column; gap: 7px; font-size: 14px; line-height: 1.5; color: #2A2224">
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #2D5C86">수(水)</span>지혜와 내면의 깊이</span>
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #6E6F73">금(金)</span>명료함과 정돈</span>
+</div>
+</div>
+</div>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: #2E5E45">WHAT'S INSIDE</span>
+<div style="overflow-x: auto; border-top: 2px solid #2A2224">
+<table style="width: 100%; min-width: 440px; border-collapse: collapse; font-size: 15px">
+<thead>
+<tr style="text-align: left; color: #6E5A5E; font-size: 13px">
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">선택 항목</th>
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">요소</th>
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">상징적 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">블랙 줄</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; background: #1A1A1C; flex: none"></span>블랙 코드</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">집중 · 자기확신 · 중심</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">블루 원석</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; background: #9DB8D2; flex: none"></span>아쿠아마린</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">지혜 · 평온 · 내면의 여유</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">투명 원석</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; background: #F3F6F8; box-shadow: inset 0 0 0 1px #B9C2CA; flex: none"></span>클리어 쿼츠(백수정)</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">명료함 · 정돈 · 새로운 시야</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">블랙 원석</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; background: #23222A; flex: none"></span>흑요석 또는 블랙 오닉스</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">보호 · 단단함 · 균형</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">매듭</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3">슬라이딩 매듭</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">유연함 · 나만의 속도</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="stitch" style="position: relative; max-width: 820px; width: 100%; margin: 0 auto; box-sizing: border-box; background: #F6E3E6; border-radius: 6px; padding: 56px clamp(24px, 6vw, 64px) 48px; display: flex; flex-direction: column; gap: 20px">
+<svg viewBox="0 0 200 112" width="120" aria-hidden="true" style="position: absolute; top: -40px; left: 50%; margin-left: -60px"><path d="M100 54 C72 8,18 12,28 46 C36 72,80 66,100 54 Z" fill="#1E1A1B"></path><path d="M100 54 C128 8,182 12,172 46 C164 72,120 66,100 54 Z" fill="#1E1A1B"></path><path d="M96 58 C88 80,72 96,58 110 L72 112 C84 98,96 82,101 62 Z" fill="#1E1A1B"></path><path d="M104 58 C112 80,128 96,142 110 L128 112 C116 98,104 82,99 62 Z" fill="#1E1A1B"></path><ellipse cx="100" cy="55" rx="10" ry="9" fill="#2B2526"></ellipse></svg>
+<span class="yarn-brown" style="align-self: flex-start; font-family: 'Pacifico', cursive; font-size: 24px; line-height: 1.5; padding: 0 0.1em">A letter with your bracelet</span>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px; font-weight: 700; line-height: 1.8; color: #2A2224">2026년, 수많은 생각과 고민 속에서 자신만의 답을 찾아왔을 당신에게.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">때로는 혼자만의 시간이 필요했고, 다른 사람에게 쉽게 꺼내지 못한 생각들도 있었겠지만 그 시간은 분명 자신을 더 깊이 이해하는 과정이었을 거예요.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">다가오는 2027년에는 복잡한 생각을 조금 내려놓고, 내 안에 이미 존재하는 지혜와 가능성을 믿으며 나아가기를 바라는 마음으로 팔찌를 제작했습니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">나를 단단하게 지켜주는 블랙 컬러에는 흔들리지 않는 중심과 자기확신을, 맑고 투명한 크리스털에는 복잡한 마음을 정돈하고 본질을 바라보는 선명함을 담았습니다. 은은한 블루 원석에는 깊은 생각 속에서도 잃지 않았으면 하는 마음의 평온과 지혜, 새로운 시야를 향한 소망을 담았습니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">화려한 장식 없이 원석 본연의 아름다움을 살린 디자인처럼, 다른 사람의 시선보다 나만의 가치와 속도를 소중히 여기기를 바랍니다.</p>
+<span style="align-self: flex-end; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">— from OBJET</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isCase3}}" hint-placeholder-val="{{ false }}">
+<div class="case-in" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span style="padding: 7px 14px; border-radius: 999px; background: #2A2224; color: #FFFBF7; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em">CASE 03.</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.4">나만의 결을 가진 사람</h2>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 18px; line-height: 1.75; color: #5E4B4F">네 개의 팔찌로 이야기하는 하나의 소원</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; padding-top: 16px">
+<div style="width: 100%; max-width: 460px">
+<div onPointerDown="{{swipeStart}}" onPointerUp="{{swipeEnd}}" style="position: relative; width: 100%; touch-action: pan-y; cursor: grab; user-select: none">
+<div style="position: absolute; inset: 16px 16px -12px -12px; background: #D9C7AE; border-radius: 6px; transform: rotate(-3deg)"></div>
+<div style="position: relative; background: #FFFFFF; border-radius: 6px; padding: 14px 14px 52px; transform: rotate(1.5deg); box-shadow: 0 18px 40px rgba(90,60,30,0.18)">
+<img draggable="false" src="assets/case3.jpg" alt="objet 카드 위에 놓인 화이트 비즈, 브라운 꼬임 실, 크리스털 참, 실버 K 이니셜 팔찌 네 개 세트" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
+<span style="position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 19px; color: #4A3F42">four bracelets, one wish</span>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px">
+<button class="btn" type="button" aria-label="이전 사례" onClick="{{prevCase}}" style="width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid #2A2224; background: #FFFBF7; color: #2A2224; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 L8 12 L15 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<div style="display: flex; gap: 8px; align-items: center">
+<sc-for list="{{caseDots}}" as="item" hint-placeholder-count="3">
+<button type="button" aria-label="{{item.aria}}" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="{{item.style}}"></button>
+</sc-for>
+</div>
+<button class="btn" type="button" aria-label="다음 사례" onClick="{{nextCase}}" style="width: 48px; height: 48px; border-radius: 50%; border: 0; background: #2A2224; color: #FFFBF7; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+</div>
+<p style="margin: 12px 0 0; text-align: center; font-size: 13px; color: #6E5A5E">사진을 옆으로 넘기면 다음 사례가 보여요</p>
+</div>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 22px">
+<div style="background: #F6E3E6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 15px; color: #B8322F">01. ID 아이디</span>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 1.6; color: #2A2224">완벽함과 조화를 추구하는 identity</p>
+</div>
+<div style="background: #F6E3E6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 15px; color: #2E5E45">02. 사주 오행</span>
+<div style="display: flex; flex-direction: column; gap: 7px; font-size: 14px; line-height: 1.5; color: #2A2224">
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #6E6F73">금(金)</span>정돈, 기준, 자기확신</span>
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #8A5A3C">토(土)</span>안정, 중심, 지속성</span>
+<span><span style="display: inline-block; min-width: 54px; font-weight: 700; color: #B3122E">화(火)</span>온기, 열정, 생명력</span>
+</div>
+</div>
+</div>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: #2E5E45">WHAT'S INSIDE</span>
+<div style="overflow-x: auto; border-top: 2px solid #2A2224">
+<table style="width: 100%; min-width: 440px; border-collapse: collapse; font-size: 15px">
+<thead>
+<tr style="text-align: left; color: #6E5A5E; font-size: 13px">
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">팔찌</th>
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">구성</th>
+<th style="padding: 14px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700">상징적 의미</th>
+</tr>
+</thead>
+<tbody>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">화이트 팔찌</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; flex: none; background: #FBF8F1; box-shadow: inset 0 0 0 1px #CFC6B8, 3px 0 0 -1px #C9A86A"></span>아이보리 비즈 · 골드 포인트</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">순수함 · 정돈 · 새로운 시작 · 풍요</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">브라운 팔찌</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; flex: none; background: repeating-linear-gradient(60deg,#A8693A 0 2px,#7E4A26 2px 4px)"></span>브라운 컬러 꼬임 실</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">안정 · 인내 · 중심 · 지속성</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">크리스털 팔찌</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 16px; height: 16px; border-radius: 50%; flex: none; background: radial-gradient(circle at 35% 35%,#FFFFFF 0 30%,#DCE3EA 60%,#A8693A 62%)"></span>브라운 더블 코드 · 투명 크리스털 참</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">희망 · 가능성 · 반짝임 · 자기표현</td></tr>
+<tr><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; font-weight: 700; white-space: nowrap">실버 팔찌</td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3"><span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 18px; height: 18px; border-radius: 4px; flex: none; background: #B8BCC2; color: #2A2224; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">K</span>실버 메탈 비즈 · K 이니셜 참</span></td><td style="padding: 16px 8px; border-bottom: 1px solid #EBCFD3; color: #5E4B4F">개성 · 자기확신 · 특별함 · 자기애</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="stitch" style="position: relative; max-width: 820px; width: 100%; margin: 0 auto; box-sizing: border-box; background: #F6E3E6; border-radius: 6px; padding: 56px clamp(24px, 6vw, 64px) 48px; display: flex; flex-direction: column; gap: 20px">
+<svg viewBox="0 0 200 112" width="120" aria-hidden="true" style="position: absolute; top: -40px; left: 50%; margin-left: -60px"><path d="M100 54 C72 8,18 12,28 46 C36 72,80 66,100 54 Z" fill="#1E1A1B"></path><path d="M100 54 C128 8,182 12,172 46 C164 72,120 66,100 54 Z" fill="#1E1A1B"></path><path d="M96 58 C88 80,72 96,58 110 L72 112 C84 98,96 82,101 62 Z" fill="#1E1A1B"></path><path d="M104 58 C112 80,128 96,142 110 L128 112 C116 98,104 82,99 62 Z" fill="#1E1A1B"></path><ellipse cx="100" cy="55" rx="10" ry="9" fill="#2B2526"></ellipse></svg>
+<span class="yarn-brown" style="align-self: flex-start; font-family: 'Pacifico', cursive; font-size: 24px; line-height: 1.5; padding: 0 0.1em">A letter with your bracelet</span>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px; font-weight: 700; line-height: 1.8; color: #2A2224">2026년, 수많은 순간을 지나오며 조금씩 자신만의 색깔과 기준을 만들어왔을 한 사람을 위해 네 가지 팔찌를 하나의 세트로 제작했습니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">깨끗한 화이트에는 새로운 시작을 향한 맑은 마음을, 따뜻한 브라운에는 어떤 순간에도 나를 잃지 않고 살아가려는 단단한 믿음을 담았습니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">작은 크리스털에는 일상 속에서 발견하는 나만의 반짝임과 새로운 가능성을, 실버 팔찌에 새겨진 이니셜 K에는 세상에 단 하나뿐인 나의 존재와 특별한 가치를 담았습니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">네 개의 팔찌는 서로 다른 모습이지만 결국 하나의 소원을 이야기합니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">때로는 맑게 비우고, 때로는 단단하게 지켜내며, 때로는 새로운 가능성을 향해 마음을 열고, 무엇보다 나 자신을 소중하게 사랑하는 것.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 17px; line-height: 2; color: #2A2224">2026년의 나를 따뜻하게 안아주고, 2027년의 나를 조금 더 믿어주기를 바랍니다.</p>
+<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px; font-weight: 700; line-height: 1.8; color: #B8322F">누군가의 기준에 맞춰 살아가기보다 나만의 색으로, 나만의 속도로, 나답게 피어나는 한 해가 되기를.</p>
+<span style="align-self: flex-end; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">— from OBJET</span>
+</div>
+</div>
+</sc-if>
+
+<a class="btn" href="#apply" style="align-self: center; display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 32px; border-radius: 999px; background-color: #B8322F; color: #FFFBF7; text-decoration: none; font-size: 16px; font-weight: 700">나도 이런 팔찌 받아보기</a>
+</div>
+</section>
+
+<!-- 신청 폼 -->
+<section id="apply" style="position: relative; background: #FFFBF7; padding: 112px 24px 96px">
+<img class="ico" src="assets/i-gift.webp" alt="" aria-hidden="true" style="left: 6%; top: 22px; width: 52px">
+<img class="ico" src="assets/i-star.webp" alt="" aria-hidden="true" style="right: 6%; top: 24px; width: 44px">
+<div class="knit-in" style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<span class="yarn" style="align-self: center; font-family: 'Pacifico', cursive; font-size: 28px; line-height: 1.5; padding: 0 0.1em">Make a wish</span>
+<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 700; font-size: clamp(26px, 3.4vw, 38px)">신청서 작성</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.75; color: #5E4B4F">사주 분석을 위해 생년월일과 태어난 시간을 받아요. 모르는 항목은 비워 두셔도 괜찮아요.</p>
+</div>
+
+<sc-if value="{{notSubmitted}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px">
+<div class="fld"><label for="name">이름 *</label><input id="name" name="name" type="text" required placeholder="홍길동"></div>
+<div class="fld"><label for="phone">연락처 *</label><input id="phone" name="phone" type="tel" required placeholder="010-0000-0000"></div>
+<div class="fld"><label for="birth">생년월일 (양력) *</label><input id="birth" name="birth" type="date" required></div>
+<div class="fld"><label for="time">태어난 시간</label><input id="time" name="time" type="time"></div>
+<div class="fld"><label for="gender">성별</label><select id="gender" name="gender"><option value="">선택해 주세요</option><option>여성</option><option>남성</option><option>선택 안 함</option></select></div>
+</div>
+<div class="fld"><label for="wish">2027년, 내가 가장 바라는 한 가지 *</label><textarea id="wish" name="wish" required maxlength="100" placeholder="예) 조금 더 나를 믿어 주는 한 해가 되기를"></textarea></div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px; line-height: 1.55">
+<label style="display: flex; gap: 10px; align-items: flex-start; min-height: 44px"><input type="checkbox" name="agree" value="동의" required style="flex: none; width: 20px; height: 20px; margin: 0; accent-color: #B8322F"><span style="display: flex; flex-direction: column; gap: 4px"><span>[필수] 개인정보 수집·이용에 동의합니다.</span><span style="font-size: 12px; line-height: 1.6; color: #6E5A5E">이름, 연락처, 생년월일·시간은 팔찌 제작과 결과 안내에만 사용되며 [보관 기간] 후 파기됩니다.</span></span></label>
+<label style="display: flex; gap: 10px; align-items: flex-start; min-height: 44px"><input type="checkbox" name="marketing" value="동의" style="flex: none; width: 20px; height: 20px; margin: 0; accent-color: #B8322F"><span>[선택] 오브제의 새 소식과 이벤트 안내를 받을게요.</span></label>
+</div>
+<button class="btn" type="submit" style="min-height: 58px; border: 0; border-radius: 999px; background-color: #B8322F; color: #FFFBF7; font: inherit; font-size: 17px; font-weight: 700; cursor: pointer" id="submitBtn">나의 소원 보내기</button>
+<p id="sendError" role="alert" style="margin: 0; min-height: 1px; font-size: 14px; color: #B8322F; text-align: center"></p>
+</form>
+</sc-if>
+
+<sc-if value="{{submitted}}" hint-placeholder-val="{{ false }}">
+<div style="background: #F6E3E6; border-radius: 8px; padding: 48px 28px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+<svg width="64" height="64" viewBox="-16 -16 32 32" aria-hidden="true"><path d="M0,12 C-14,2 -14,-10 -6,-11 C-2,-11.5 0,-8 0,-6 C0,-8 2,-11.5 6,-11 C14,-10 14,2 0,12 Z" fill="#B8322F"></path></svg>
+<h3 style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 26px; font-weight: 700">{{thanksTitle}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #5E4B4F">신청이 완료되었어요. 선정되시면 이벤트 마감 후 남겨 주신 연락처로 개별 안내드릴게요.<br>나의 분석 결과로 엮은 팔찌 조합은 개별 안내로 전해드려요.</p>
+<button class="btn" type="button" onClick="{{reset}}" style="min-height: 48px; padding: 0 22px; border: 1.5px solid #2A2224; border-radius: 999px; background: #FFFBF7; color: #2A2224; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">처음으로 돌아가기</button>
+</div>
+</sc-if>
+</div>
+</section>
+
+<footer style="background: #2A2224; color: #E8D7DA">
+<div class="stripe" style="height: 22px"></div>
+<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center">
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; letter-spacing: 0.08em; color: #FFFBF7">OBJET</span>
+<span style="font-size: 13px; line-height: 1.7">문의 [이메일 / 인스타그램 계정] · © 2026 OBJET</span>
+</div>
+</footer>
+</div></template>
+<script>
+var SHEET_URL = '';
+function dcGet(path, sc) {
+  path = path.trim();
+  if (path === 'true') return true; if (path === 'false') return false;
+  if (/^-?\d+(\.\d+)?$/.test(path)) return +path;
+  return path.split('.').reduce(function (o, k) { return o == null ? undefined : o[k]; }, sc);
+}
+var WHOLE = /^\{\{\s*([^}]+?)\s*\}\}$/;
+function dcInterp(str, sc) { return str.replace(/\{\{\s*([^}]+?)\s*\}\}/g, function (m, p) { var v = dcGet(p, sc); return v == null ? '' : String(v); }); }
+var EV = { onclick: 'click', onpointerdown: 'pointerdown', onpointerup: 'pointerup', onsubmit: 'submit', onchange: 'change', oninput: 'input' };
+function dcKids(node, sc, into) { node.childNodes.forEach(function (c) { var b = dcBuild(c, sc); if (b) into.appendChild(b); }); }
+function dcBuild(node, sc) {
+  if (node.nodeType === 3) return document.createTextNode(node.nodeValue.indexOf('{{') > -1 ? dcInterp(node.nodeValue, sc) : node.nodeValue);
+  if (node.nodeType !== 1) return null;
+  var tag = node.localName, frag;
+  if (tag === 'sc-for') {
+    var list = dcGet(WHOLE.exec(node.getAttribute('list'))[1], sc) || [], as = node.getAttribute('as') || 'item';
+    frag = document.createDocumentFragment();
+    list.forEach(function (it, i) { var s2 = Object.create(sc); s2[as] = it; s2.$index = i; dcKids(node, s2, frag); });
+    return frag;
+  }
+  if (tag === 'sc-if') {
+    frag = document.createDocumentFragment();
+    if (dcGet(WHOLE.exec(node.getAttribute('value'))[1], sc)) dcKids(node, sc, frag);
+    return frag;
+  }
+  var el = node.namespaceURI === 'http://www.w3.org/1999/xhtml' ? document.createElement(tag) : document.createElementNS(node.namespaceURI, node.tagName);
+  Array.prototype.slice.call(node.attributes).forEach(function (a) {
+    var n = a.name, v = a.value, m, val;
+    if (n.indexOf('hint-') === 0) return;
+    if (EV[n]) { m = WHOLE.exec(v); var fn = m && dcGet(m[1], sc); if (typeof fn === 'function') el.addEventListener(EV[n], fn); return; }
+    if (v.indexOf('{{') > -1) { m = WHOLE.exec(v); val = m ? dcGet(m[1], sc) : dcInterp(v, sc); if (val == null || val === false) return; v = String(val); }
+    if (a.namespaceURI) el.setAttributeNS(a.namespaceURI, a.name, v); else el.setAttribute(n, v);
+  });
+  dcKids(node, sc, el);
+  return el;
+}
+class DCLogic {
+  constructor(props) { this.props = props || {}; this.state = {}; }
+  setState(u) { var before = this.state.submitted; Object.assign(this.state, typeof u === 'function' ? u(this.state) : u); dcRerender(before !== this.state.submitted); }
+  forceUpdate() { dcRerender(false); }
+}
+var dcComp, dcRegions = [];
+function dcRerender(formToo) {
+  var vals = dcComp.renderVals();
+  dcRegions.forEach(function (r) {
+    if (!r.dyn || (r.form && !formToo)) return;
+    var n = dcBuild(r.t, vals);
+    if (n.outerHTML === r.el.outerHTML) return;
+    r.el.replaceWith(n); r.el = n;
+  });
+}
+window.objetSubmit = function (e, comp) {
+  e.preventDefault();
+  var f = e.target, btn = document.getElementById('submitBtn'), err = document.getElementById('sendError');
+  if (btn.disabled) return;
+  var fd = new FormData(f);
+  fd.append('submittedAt', new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }));
+  btn.disabled = true; btn.textContent = '보내는 중…'; err.textContent = '';
+  var done = function () { comp.setState({ submitted: true, applicant: String(fd.get('name') || '') }); document.getElementById('apply').scrollIntoView({ behavior: 'smooth' }); };
+  if (!SHEET_URL) { console.warn('SHEET_URL is not set'); done(); return; }
+  fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(fd) })
+    .then(done)
+    .catch(function () { btn.disabled = false; btn.textContent = '나의 소원 보내기'; err.textContent = '전송에 실패했어요. 잠시 후 다시 시도해 주세요.'; });
+};
+
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { part: 'cord', caseIdx: 0, submitted: false, applicant: '' };
+    this.sx = null;
+  }
+  renderVals() {
+    const s = this.state;
+    const CORDS = [
+      { name: '레드', hex: '#B5302E', word: '열정 · 화(火)' },
+      { name: '포레스트 그린', hex: '#2F5D46', word: '성장 · 목(木)' },
+      { name: '베이지', hex: '#CDB89A', word: '안정 · 토(土)' },
+      { name: '아이보리', hex: '#EFE8DA', word: '정돈 · 금(金)' },
+      { name: '네이비', hex: '#1F2E52', word: '지혜 · 수(水)' },
+      { name: '라벤더', hex: '#B6A6D6', word: '치유 · 회복' },
+      { name: '로즈 핑크', hex: '#D98A9C', word: '다정 · 사랑' },
+      { name: '블랙', hex: '#1A1A1C', word: '집중 · 보호' }
+    ];
+    const STONES = [
+      { name: '그린 어벤추린', hex: '#5E9B78', word: '행운 · 기회' },
+      { name: '자수정', hex: '#8A63B0', word: '평온 · 직관' },
+      { name: '로즈쿼츠', hex: '#F0BFC6', word: '사랑 · 관계' },
+      { name: '타이거아이', hex: '#A8702E', word: '용기 · 실행' },
+      { name: '흑요석', hex: '#23222A', word: '보호 · 정화' },
+      { name: '문스톤', hex: '#DCE3EA', word: '새로운 시작' },
+      { name: '시트린', hex: '#E5B547', word: '풍요 · 자신감' },
+      { name: '담수 진주', hex: '#F2ECE2', word: '순수 · 지혜' }
+    ];
+    const TW = 'M-18,0 a6,8 0 1,0 12,0 a6,8 0 1,0 -12,0 Z M-6,0 a6,8 0 1,0 12,0 a6,8 0 1,0 -12,0 Z M6,0 a6,8 0 1,0 12,0 a6,8 0 1,0 -12,0 Z';
+    const KNOTS = [
+      { name: '슬라이딩 매듭', word: '유연하게 맞춰 가는', path: 'M-16,-8 h32 v16 h-32 Z', tails: 'M-8,8 C-12,18 -14,22 -18,26 M8,8 C12,18 14,22 18,26' },
+      { name: '꼬임 매듭', word: '단단히 이어 가는', path: TW, tails: '' },
+      { name: '심플 매듭', word: '담백하고 가볍게', path: 'M0,-8 a8,8 0 1,0 0.01,0 Z', tails: '' },
+      { name: '포인트 매듭', word: '나를 또렷하게', path: 'M0,-12 L12,0 L0,12 L-12,0 Z', tails: '' }
+    ];
+    const CLOVER = 'M-5.5,-6 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z M0.5,0 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z M-5.5,6 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z M-11.5,0 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z';
+    const STAR = 'M0,-14 L4.1,-4.3 L13.3,-4.3 L5.9,1.6 L8.7,11.3 L0,5.5 L-8.7,11.3 L-5.9,1.6 L-13.3,-4.3 L-4.1,-4.3 Z';
+    const CHARMS = [
+      { name: '별', word: '꿈 · 바람', path: STAR, rule: 'nonzero', glyph: '' },
+      { name: '달', word: '위로 · 쉼', path: 'M4,-13 A13,13 0 1,0 4,13 A14,14 0 0,1 4,-13 Z', rule: 'nonzero', glyph: '' },
+      { name: '하트', word: '사랑 · 다정함', path: 'M0,12 C-14,2 -14,-10 -6,-11 C-2,-11.5 0,-8 0,-6 C0,-8 2,-11.5 6,-11 C14,-10 14,2 0,12 Z', rule: 'nonzero', glyph: '' },
+      { name: '클로버', word: '행운', path: CLOVER, rule: 'nonzero', glyph: '' },
+      { name: '원형 링', word: '연결 · 순환', path: 'M0,-12 a12,12 0 1,0 0.01,0 Z M0,-7 a7,7 0 1,1 -0.01,0 Z', rule: 'evenodd', glyph: '' },
+      { name: '이니셜', word: '나다움', path: 'M0,-12 a16,16 0 1,0 0.01,0 Z', rule: 'nonzero', glyph: 'A' },
+      { name: '오행 심볼', word: '균형 · 조화', path: 'M0,-13 L12.4,-4 L7.6,10.5 L-7.6,10.5 L-12.4,-4 Z M0,-5 a5,5 0 1,0 0.01,0 Z', rule: 'evenodd', glyph: '' },
+      { name: '장식 없음', word: '미니멀하게', path: '', rule: 'nonzero', glyph: '—' }
+    ];
+    const dot = (hex) => 'width:24px;height:24px;border-radius:50%;flex:none;background:' + hex + ';box-shadow:inset 0 0 0 1px rgba(42,34,36,0.25)';
+    const colorItems = (l) => l.map((x) => Object.assign({}, x, { isColor: true, isIcon: false, dot: dot(x.hex) }));
+    const iconItems = (l, fill) => l.map((x) => Object.assign({ tails: '', rule: 'nonzero', glyph: '' }, x, { isColor: false, isIcon: true, iconFill: fill }));
+    const PARTS = [
+      { id: 'cord', no: '01', label: '줄 컬러', en: 'The cord', unit: '컬러', source: '사주 · 오행',
+        connect: '태어난 날의 오행(목·화·토·금·수) 균형을 살펴, 2027년의 나에게 채워 주면 좋을 기운을 줄의 색으로 옮겨요. 매일 손목에 두르는 가장 넓은 부분이라, 한 해의 바탕이 되는 기운을 담아요.',
+        example: '예) 차분한 물(水)의 기운이 필요한 사람이라면 → 네이비', items: colorItems(CORDS), x: 9, y: 47 },
+      { id: 'stone', no: '02', label: '원석', en: 'The stone', unit: '원석', source: 'ID 검사 · 나의 모양',
+        connect: '나의 ID(IDENTITY) 검사로 본 나의 모양과, 2026년을 지나오며 흔들렸던 마음을 살펴요. 그 마음 곁에 두면 힘이 되어 줄 원석을 팔찌 가운데에 엮어요.',
+        example: '예) 나다움을 찾고 새 출발을 앞둔 사람이라면 → 문스톤', items: colorItems(STONES), x: 70, y: 86 },
+      { id: 'knot', no: '03', label: '매듭', en: 'The knot', unit: '매듭', source: 'ID 검사 · 관계의 방식',
+        connect: '사람과 관계를 맺고 마음을 다루는 나만의 방식을 매듭으로 표현해요. 단단히 묶어 지키는 사람인지, 유연하게 풀어 가는 사람인지에 따라 달라져요.',
+        example: '예) 변화를 즐기고 가능성을 보는 성향이라면 → 슬라이딩 매듭', items: iconItems(KNOTS, '#B8322F'), x: 70, y: 8 },
+      { id: 'charm', no: '04', label: '참 장식', en: 'The charm', unit: '참', source: '나의 2027 소원',
+        connect: '신청서에 적어 주신 2027년의 소원을 하나의 상징으로 담아 팔찌 끝에 매달아요. 손목을 볼 때마다 내가 바라던 것을 떠올리게 해 줘요.',
+        example: '예) “조금 더 나를 믿고 싶어요” → 별', items: iconItems(CHARMS, '#C9A86A'), x: 30, y: 92 }
+    ];
+    const cur = PARTS.find((p) => p.id === s.part) || PARTS[0];
+    const op = (id) => (s.part === id ? '1' : '0.18');
+    const pinBase = 'position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;font:inherit;font-family:\'Playfair Display\',serif;font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 4px 12px rgba(110,40,50,0.25);';
+    const tabBase = 'min-height:48px;padding:0 12px;border-radius:999px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;';
+    return {
+      pins: PARTS.map((p) => {
+        const on = p.id === s.part;
+        return { no: p.no.slice(1), aria: p.label + ' 설명 보기', pressed: on ? 'true' : 'false', pick: () => this.setState({ part: p.id }),
+          style: pinBase + 'left:' + p.x + '%;top:' + p.y + '%;' + (on ? 'background:#B8322F;color:#FFFBF7;border:2px solid #FFFBF7;' : 'background:#FFFBF7;color:#B8322F;border:2px solid #B8322F;') };
+      }),
+      tabs: PARTS.map((p) => {
+        const on = p.id === s.part;
+        return { no: p.no, label: p.label, pressed: on ? 'true' : 'false', pick: () => this.setState({ part: p.id }),
+          style: tabBase + (on ? 'background:#2A2224;color:#FFFBF7;border:1.5px solid #2A2224;' : 'background:#FFFDFB;color:#2A2224;border:1.5px solid #E2C6CA;') };
+      }),
+      p: cur,
+      cordOp: op('cord'), stoneOp: op('stone'), knotOp: op('knot'), charmOp: op('charm'),
+      cordHex: '#B5302E',
+      stoneHex: '#E27F97',
+      stoneHalo: s.part === 'stone' ? '1' : '0',
+      knotPath: KNOTS[0].path,
+      knotTails: KNOTS[0].tails,
+      charmPath: STAR,
+      charmRule: 'nonzero',
+      charmLineOpacity: '1',
+      initialR: '0',
+      initialText: '',
+      isCase1: s.caseIdx === 0,
+      isCase2: s.caseIdx === 1,
+      isCase3: s.caseIdx === 2,
+      prevCase: () => this.setState({ caseIdx: (s.caseIdx + 2) % 3 }),
+      nextCase: () => this.setState({ caseIdx: (s.caseIdx + 1) % 3 }),
+      caseDots: [0, 1, 2].map((i) => ({ aria: ['CASE 01', 'CASE 02', 'CASE 03'][i] + ' 보기', pressed: s.caseIdx === i ? 'true' : 'false', pick: () => this.setState({ caseIdx: i }),
+        style: 'height:10px;border:0;padding:0;border-radius:999px;cursor:pointer;transition:width .25s;' + (s.caseIdx === i ? 'width:28px;background:#B8322F;' : 'width:10px;background:#D9B9BE;') })),
+      swipeStart: (e) => { this.sx = e.clientX; },
+      swipeEnd: (e) => {
+        if (this.sx == null) return;
+        const dx = e.clientX - this.sx; this.sx = null;
+        if (Math.abs(dx) > 40) this.setState({ caseIdx: (this.state.caseIdx + (dx < 0 ? 1 : 2)) % 3 });
+      },
+      submitted: s.submitted,
+      notSubmitted: !s.submitted,
+      thanksTitle: (s.applicant ? s.applicant + '님의 ' : '') + '소원이 도착했어요',
+      submit: (e) => window.objetSubmit(e, this),
+      reset: () => this.setState({ submitted: false, applicant: '' })
+    };
+  }
+}
+
+
+(function () {
+  var tpl = document.getElementById('tpl').content, rootT = tpl.firstElementChild;
+  dcComp = new Component({});
+  var vals = dcComp.renderVals();
+  var root = document.importNode(rootT, false);
+  rootT.childNodes.forEach(function (c) {
+    var el = dcBuild(c, vals); if (!el) return;
+    root.appendChild(el);
+    if (c.nodeType === 1) dcRegions.push({ t: c, el: el, dyn: c.outerHTML.indexOf('{{') > -1, form: !!c.querySelector('form') });
+  });
+  document.getElementById('app').replaceWith(root);
+})();
+</script>
+</body>
+</html>
