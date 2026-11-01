@@ -99,7 +99,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 </sc-for>
 </div>
 <div style="display: flex; justify-content: center; margin-top: 8px">
-<sc-for list="{{heroDots}}" as="item" hint-placeholder-count="7">
+<sc-for list="{{heroDots}}" as="item" hint-placeholder-count="9">
 <button type="button" aria-label="{{item.aria}}" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="width: 24px; height: 24px; border: 0; padding: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><span style="{{item.dot}}"></span></button>
 </sc-for>
 </div>
@@ -650,8 +650,8 @@ class Component extends DCLogic {
   }
   componentDidMount() { this.startHero(); }
   componentWillUnmount() { clearInterval(this.heroTimer); }
-  startHero() { clearInterval(this.heroTimer); this.heroTimer = setInterval(() => this.setState({ heroIdx: (this.state.heroIdx + 1) % 7 }), 3500); }
-  goHero(i) { this.setState({ heroIdx: (i + 7) % 7 }); this.startHero(); }
+  startHero() { clearInterval(this.heroTimer); this.heroTimer = setInterval(() => this.setState({ heroIdx: (this.state.heroIdx + 1) % 9 }), 3500); }
+  goHero(i) { this.setState({ heroIdx: (i + 9) % 9 }); this.startHero(); }
   renderVals() {
     const s = this.state;
     const HERO = [
@@ -661,7 +661,9 @@ class Component extends DCLogic {
       { src: 'assets/hero-4.jpg', alt: '블루그레이 줄에 골드 비즈를 단 소원팔찌' },
       { src: 'assets/hero-5.jpg', alt: '그레이 줄에 체리 비즈, 꽃 자개, 그린 원석을 엮은 소원팔찌' },
       { src: 'assets/hero-6.jpg', alt: '블랙 두 줄 코드에 그레이·투명 원석과 실버 비즈를 엮은 소원팔찌' },
-      { src: 'assets/hero-7.jpg', alt: '민트 꼬임 줄에 실버 리본 참과 핑크 비즈를 단 소원팔찌' }
+      { src: 'assets/hero-7.jpg', alt: '민트 꼬임 줄에 실버 리본 참과 핑크 비즈를 단 소원팔찌' },
+      { src: 'assets/hero-8.jpg', alt: '블랙 코드에 아쿠아마린과 크리스털을 엮은 소원팔찌를 손목에 찬 모습' },
+      { src: 'assets/hero-9.jpg', alt: '브라운 줄에 레드·그린 원석과 네잎클로버를 엮은 소원팔찌를 손목에 찬 모습' }
     ];
     const CORDS = [
       { name: '레드', hex: '#B5302E', word: '열정 · 화(火)' },
