@@ -540,7 +540,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <div class="fld"><label for="name">이름 *</label><input id="name" name="name" type="text" required placeholder="홍길동"></div>
 <div class="fld"><label for="phone">연락처 *</label><input id="phone" name="phone" type="tel" required placeholder="010-0000-0000"></div>
 <div class="fld"><label for="birth">생년월일 (양력) *</label><input id="birth" name="birth" type="date" required></div>
-<div class="fld"><label for="time">태어난 시간</label><input id="time" name="time" type="time"></div>
+<div class="fld"><label for="time">태어난 시간</label><select id="time" name="time"><option value="모름">잘 모르겠어요</option><option value="자시 (23:30~01:29)">23:30~01:29 · 자시</option><option value="축시 (01:30~03:29)">01:30~03:29 · 축시</option><option value="인시 (03:30~05:29)">03:30~05:29 · 인시</option><option value="묘시 (05:30~07:29)">05:30~07:29 · 묘시</option><option value="진시 (07:30~09:29)">07:30~09:29 · 진시</option><option value="사시 (09:30~11:29)">09:30~11:29 · 사시</option><option value="오시 (11:30~13:29)">11:30~13:29 · 오시</option><option value="미시 (13:30~15:29)">13:30~15:29 · 미시</option><option value="신시 (15:30~17:29)">15:30~17:29 · 신시</option><option value="유시 (17:30~19:29)">17:30~19:29 · 유시</option><option value="술시 (19:30~21:29)">19:30~21:29 · 술시</option><option value="해시 (21:30~23:29)">21:30~23:29 · 해시</option></select><input id="timeExact" name="timeExact" type="text" inputmode="numeric" maxlength="5" placeholder="정확히 알면 적어 주세요 (예: 14:20)" aria-label="정확한 태어난 시간"></div>
 <div class="fld"><label for="gender">성별</label><select id="gender" name="gender"><option value="">선택해 주세요</option><option>여성</option><option>남성</option><option>선택 안 함</option></select></div>
 </div>
 <div class="fld"><label for="wish">2027년, 내가 가장 바라는 한 가지 *</label><textarea id="wish" name="wish" required maxlength="100" placeholder="예) 조금 더 나를 믿어 주는 한 해가 되기를"></textarea></div>
@@ -631,6 +631,7 @@ window.objetSubmit = function (e, comp) {
   if (btn.disabled) return;
   var fd = new FormData(f);
   fd.append('submittedAt', new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }));
+  var ex = String(fd.get('timeExact') || '').trim(); if (ex) fd.set('time', ex + ' / ' + String(fd.get('time') || '')); fd.delete('timeExact');
   btn.disabled = true; btn.textContent = '보내는 중…'; err.textContent = '';
   var done = function () { comp.setState({ submitted: true, applicant: String(fd.get('name') || '') }); document.getElementById('apply').scrollIntoView({ behavior: 'smooth' }); };
   if (!SHEET_URL) { console.warn('SHEET_URL is not set'); done(); return; }
