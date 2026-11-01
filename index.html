@@ -41,6 +41,8 @@ a{color:#B8322F}a:hover{color:#8E2220}
 .kw{font-weight:700}
 .ph{display:inline-block}
 .ln{display:block}
+@keyframes heroFade{from{opacity:.2}to{opacity:1}}
+.hero-fade{animation:heroFade .6s ease}
 .knit-in{position:relative;z-index:1}
 @keyframes caseIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
 .case-in{animation:caseIn .45s ease}
@@ -91,7 +93,16 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <div style="position: absolute; inset: 18px -14px -14px 18px; background: #E9A9B3; border-radius: 6px; transform: rotate(4deg)"></div>
 <div style="position: relative; background: #FFFBF7; border-radius: 6px; padding: 52px 28px 28px; transform: rotate(-2deg); box-shadow: 0 18px 40px rgba(110,40,50,0.18)">
 <svg viewBox="0 0 200 112" width="170" aria-hidden="true" style="position: absolute; top: -58px; left: 50%; margin-left: -85px"><path d="M100 54 C72 8,18 12,28 46 C36 72,80 66,100 54 Z" fill="#1E1A1B"></path><path d="M100 54 C128 8,182 12,172 46 C164 72,120 66,100 54 Z" fill="#1E1A1B"></path><path d="M52 40 C60 30,78 34,92 50" fill="none" stroke="#4A4244" stroke-width="2.5" stroke-linecap="round"></path><path d="M148 40 C140 30,122 34,108 50" fill="none" stroke="#4A4244" stroke-width="2.5" stroke-linecap="round"></path><path d="M96 58 C88 80,72 96,58 110 L72 112 C84 98,96 82,101 62 Z" fill="#1E1A1B"></path><path d="M104 58 C112 80,128 96,142 110 L128 112 C116 98,104 82,99 62 Z" fill="#1E1A1B"></path><ellipse cx="100" cy="55" rx="10" ry="9" fill="#2B2526"></ellipse></svg>
-<img src="assets/hero-bracelet.jpg" alt="레드 줄에 오렌지·블루 글라스 비즈와 담수 진주를 엮은 슬라이딩 매듭 소원팔찌" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
+<div onPointerDown="{{heroSwipeStart}}" onPointerUp="{{heroSwipeEnd}}" style="position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 2px; touch-action: pan-y; cursor: grab; user-select: none">
+<sc-for list="{{heroSlides}}" as="item" hint-placeholder-count="1">
+<img class="hero-fade" draggable="false" src="{{item.src}}" alt="{{item.alt}}" style="display: block; width: 100%; height: 100%; object-fit: cover">
+</sc-for>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 8px">
+<sc-for list="{{heroDots}}" as="item" hint-placeholder-count="7">
+<button type="button" aria-label="{{item.aria}}" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="width: 24px; height: 24px; border: 0; padding: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center"><span style="{{item.dot}}"></span></button>
+</sc-for>
+</div>
 <p style="margin: 8px 0 0; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #6E5A5E">made for you, by your wish</p>
 </div>
 </div>
@@ -632,11 +643,25 @@ window.objetSubmit = function (e, comp) {
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { part: 'cord', caseIdx: 0, submitted: false, applicant: '' };
+    this.state = { part: 'cord', caseIdx: 0, heroIdx: 0, submitted: false, applicant: '' };
+    this.hx = null;
     this.sx = null;
   }
+  componentDidMount() { this.startHero(); }
+  componentWillUnmount() { clearInterval(this.heroTimer); }
+  startHero() { clearInterval(this.heroTimer); this.heroTimer = setInterval(() => this.setState({ heroIdx: (this.state.heroIdx + 1) % 7 }), 3500); }
+  goHero(i) { this.setState({ heroIdx: (i + 7) % 7 }); this.startHero(); }
   renderVals() {
     const s = this.state;
+    const HERO = [
+      { src: 'assets/hero-bracelet.jpg', alt: '레드 줄에 오렌지·블루 글라스 비즈와 담수 진주를 엮은 소원팔찌' },
+      { src: 'assets/hero-2.jpg', alt: '베이지 세 줄 코드에 파스텔 원석을 흩뿌린 소원팔찌' },
+      { src: 'assets/hero-3.jpg', alt: '브라운 줄에 오렌지 원석과 별 참을 단 소원팔찌' },
+      { src: 'assets/hero-4.jpg', alt: '블루그레이 줄에 골드 비즈를 단 소원팔찌' },
+      { src: 'assets/hero-5.jpg', alt: '그레이 줄에 체리 비즈, 꽃 자개, 그린 원석을 엮은 소원팔찌' },
+      { src: 'assets/hero-6.jpg', alt: '블랙 두 줄 코드에 그레이·투명 원석과 실버 비즈를 엮은 소원팔찌' },
+      { src: 'assets/hero-7.jpg', alt: '민트 꼬임 줄에 실버 리본 참과 핑크 비즈를 단 소원팔찌' }
+    ];
     const CORDS = [
       { name: '레드', hex: '#B5302E', word: '열정 · 화(火)' },
       { name: '포레스트 그린', hex: '#2F5D46', word: '성장 · 목(木)' },
@@ -720,6 +745,11 @@ class Component extends DCLogic {
       charmLineOpacity: '1',
       initialR: '0',
       initialText: '',
+      heroSlides: [HERO[s.heroIdx]],
+      heroDots: HERO.map((h, i) => ({ aria: (i + 1) + '번째 팔찌 보기', pressed: s.heroIdx === i ? 'true' : 'false', pick: () => this.goHero(i),
+        dot: 'display:block;height:7px;border-radius:999px;transition:width .25s;' + (s.heroIdx === i ? 'width:20px;background:#B8322F;' : 'width:7px;background:#D9B9BE;') })),
+      heroSwipeStart: (e) => { this.hx = e.clientX; },
+      heroSwipeEnd: (e) => { if (this.hx == null) return; const dx = e.clientX - this.hx; this.hx = null; if (Math.abs(dx) > 40) this.goHero(this.state.heroIdx + (dx < 0 ? 1 : -1)); },
       isCase1: s.caseIdx === 0,
       isCase2: s.caseIdx === 1,
       isCase3: s.caseIdx === 2,
@@ -754,6 +784,7 @@ class Component extends DCLogic {
     if (c.nodeType === 1) dcRegions.push({ t: c, el: el, dyn: c.outerHTML.indexOf('{{') > -1, form: !!c.querySelector('form') });
   });
   document.getElementById('app').replaceWith(root);
+  if (dcComp.componentDidMount) dcComp.componentDidMount();
 })();
 </script>
 </body>
