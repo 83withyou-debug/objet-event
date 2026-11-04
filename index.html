@@ -165,6 +165,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 </div>
 <div style="border-top: 2px solid #2A2224">
 <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">신청 기간</span><span style="flex: 1 1 280px; color: #5E4B4F">2026년 11월 ~ 2027년 1월</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">신청 대상</span><span style="flex: 1 1 280px; color: #5E4B4F">만 20세 이상</span></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">혜택</span><span style="flex: 1 1 280px; color: #5E4B4F">나의 ID(IDENTITY) 검사·사주 분석 기반 맞춤 소원팔찌 제작</span></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">선정 인원</span><span style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; color: #B8322F">27명</span><span style="font-size: 14px; line-height: 1.6; color: #6E5A5E"><span class="ph">다가올 2027년을 담아,</span> <span class="ph">27분께 나만의 소원팔찌를 전해드려요.</span></span></span></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 20px 4px; border-bottom: 1px solid #EBCFD3"><span style="flex: 0 0 120px; font-weight: 700">발표</span><span style="flex: 1 1 280px; color: #5E4B4F">이벤트 마감 후 개별 연락</span></div>
@@ -549,7 +550,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px">
 <div class="fld"><label for="name">이름 *</label><input id="name" name="name" type="text" required placeholder="홍길동"></div>
 <div class="fld"><label for="phone">연락처 *</label><input id="phone" name="phone" type="tel" required placeholder="010-0000-0000"></div>
-<div class="fld"><label for="birth">생년월일 (양력) *</label><input id="birth" name="birth" type="date" required></div>
+<div class="fld"><label for="birth">생년월일 (양력) *</label><input id="birth" name="birth" type="date" required max="{{birthMax}}"><span style="font-size: 12px; color: #6E5A5E">만 20세 이상만 신청할 수 있어요.</span></div>
 <div class="fld"><label for="time">태어난 시간</label><select id="time" name="time"><option value="모름">잘 모르겠어요</option><option value="자시 (23:30~01:29)">23:30~01:29 · 자시</option><option value="축시 (01:30~03:29)">01:30~03:29 · 축시</option><option value="인시 (03:30~05:29)">03:30~05:29 · 인시</option><option value="묘시 (05:30~07:29)">05:30~07:29 · 묘시</option><option value="진시 (07:30~09:29)">07:30~09:29 · 진시</option><option value="사시 (09:30~11:29)">09:30~11:29 · 사시</option><option value="오시 (11:30~13:29)">11:30~13:29 · 오시</option><option value="미시 (13:30~15:29)">13:30~15:29 · 미시</option><option value="신시 (15:30~17:29)">15:30~17:29 · 신시</option><option value="유시 (17:30~19:29)">17:30~19:29 · 유시</option><option value="술시 (19:30~21:29)">19:30~21:29 · 술시</option><option value="해시 (21:30~23:29)">21:30~23:29 · 해시</option></select><input id="timeExact" name="timeExact" type="text" inputmode="numeric" maxlength="5" placeholder="정확히 알면 적어 주세요 (예: 14:20)" aria-label="정확한 태어난 시간"></div>
 <div class="fld"><label for="gender">성별</label><select id="gender" name="gender"><option value="">선택해 주세요</option><option>여성</option><option>남성</option><option>선택 안 함</option></select></div>
 </div>
@@ -640,6 +641,9 @@ window.objetSubmit = function (e, comp) {
   var f = e.target, btn = document.getElementById('submitBtn'), err = document.getElementById('sendError');
   if (btn.disabled) return;
   var fd = new FormData(f);
+  var bd = String(fd.get('birth') || ''), now = new Date(), under20 = true;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(bd)) { var y = +bd.slice(0, 4), m = +bd.slice(5, 7), d = +bd.slice(8, 10); var age = now.getFullYear() - y - ((now.getMonth() + 1 < m || (now.getMonth() + 1 === m && now.getDate() < d)) ? 1 : 0); under20 = age < 20; }
+  if (under20) { err.textContent = '죄송해요, 이 이벤트는 만 20세 이상만 신청할 수 있어요.'; document.getElementById('birth').focus(); return; }
   fd.append('submittedAt', new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }));
   var ex = String(fd.get('timeExact') || '').trim(); if (ex) fd.set('time', ex + ' / ' + String(fd.get('time') || '')); fd.delete('timeExact');
   btn.disabled = true; btn.textContent = '보내는 중…'; err.textContent = '';
@@ -770,6 +774,7 @@ class Component extends DCLogic {
         return { label: label, pressed: on ? 'true' : 'false', pick: () => this.setState({ wornCase: worn ? this.state.caseIdx : -1 }),
           style: 'min-height:40px;padding:0 16px;border-radius:999px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;' + (on ? 'background:#2A2224;color:#FFFBF7;border:1.5px solid #2A2224;' : 'background:#FFFBF7;color:#2A2224;border:1.5px solid #D9B9BE;') };
       }),
+      birthMax: (() => { const d = new Date(); d.setFullYear(d.getFullYear() - 20); return d.toISOString().slice(0, 10); })(),
       isCase1: s.caseIdx === 0,
       isCase2: s.caseIdx === 1,
       isCase3: s.caseIdx === 2,
