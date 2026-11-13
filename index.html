@@ -28,6 +28,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 .dots{background-color:#F4D6DA;background-image:radial-gradient(#FFFFFF 2.2px,transparent 2.6px),radial-gradient(#FFFFFF 1.4px,transparent 1.8px);background-size:64px 64px,38px 38px;background-position:0 0,19px 27px}
 .fld{display:flex;flex-direction:column;gap:8px}
 .fld label,.lbl{font-size:14px;font-weight:700;color:#2A2224}
+.fld input[type=date]{-webkit-appearance:none;appearance:none;display:block;text-align:left;line-height:1.3}
 .fld input,.fld select,.fld textarea{font:inherit;font-size:16px;min-width:0;color:#2A2224;background:#FFFDFB;border:1px solid #D9B9BE;border-radius:12px;padding:13px 14px;min-height:48px;box-sizing:border-box;width:100%}
 .fld textarea{min-height:84px;resize:vertical}
 .fld select{padding-right:8px;text-overflow:ellipsis}
@@ -58,12 +59,12 @@ a{color:#B8322F}a:hover{color:#8E2220}
 
 <div class="stripe" style="height: 22px"></div>
 <header style="background: #FFFBF7; border-bottom: 1px solid #EBCFD3">
-<div style="max-width: 1120px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<div style="max-width: 1120px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px">
 <div style="display: flex; align-items: baseline; gap: 10px">
-<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em">OBJET</span>
-<span style="font-family: 'Gowun Batang', serif; font-size: 15px; color: #6E5A5E">오브제</span>
+<span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; letter-spacing: 0.06em">OBJET</span>
+<span style="font-family: 'Gowun Batang', serif; font-size: 13px; color: #6E5A5E; white-space: nowrap">오브제</span>
 </div>
-<a class="btn" href="#apply" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #2A2224; color: #FFFBF7; text-decoration: none; font-size: 14px; font-weight: 700">이벤트 신청하기</a>
+<div style="display: flex; align-items: center; gap: 8px"><a href="https://www.instagram.com/objet_essential" target="_blank" rel="noopener" aria-label="오브제 인스타그램" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #E2C6CA; color: #2A2224"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle></svg></a><a class="btn" href="#apply" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #2A2224; color: #FFFBF7; text-decoration: none; font-size: 14px; font-weight: 700; white-space: nowrap">이벤트 신청하기</a></div>
 </div>
 </header>
 
@@ -489,8 +490,8 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px">
 <div class="fld" style="grid-column: 1 / -1"><label for="name">이름 *</label><input id="name" name="name" type="text" required placeholder="홍길동"></div>
 <div class="fld" style="grid-column: 1 / -1"><label for="phone">연락처 *</label><input id="phone" name="phone" type="tel" required placeholder="010-0000-0000"></div>
-<div class="fld"><label for="birth">생년월일(양력) *</label><input id="birth" name="birth" type="date" required max="{{birthMax}}" min="{{birthMin}}"><span style="font-size: 11px; color: #6E5A5E">만 20~39세</span></div>
-<div class="fld"><label for="time">태어난 시간</label><select id="time" name="time"><option value="모름">잘 모르겠어요</option><option value="자시 (23:30~01:29)">23:30~01:29 · 자시</option><option value="축시 (01:30~03:29)">01:30~03:29 · 축시</option><option value="인시 (03:30~05:29)">03:30~05:29 · 인시</option><option value="묘시 (05:30~07:29)">05:30~07:29 · 묘시</option><option value="진시 (07:30~09:29)">07:30~09:29 · 진시</option><option value="사시 (09:30~11:29)">09:30~11:29 · 사시</option><option value="오시 (11:30~13:29)">11:30~13:29 · 오시</option><option value="미시 (13:30~15:29)">13:30~15:29 · 미시</option><option value="신시 (15:30~17:29)">15:30~17:29 · 신시</option><option value="유시 (17:30~19:29)">17:30~19:29 · 유시</option><option value="술시 (19:30~21:29)">19:30~21:29 · 술시</option><option value="해시 (21:30~23:29)">21:30~23:29 · 해시</option></select><input id="timeExact" name="timeExact" type="text" inputmode="numeric" maxlength="5" placeholder="정확한 시간 (예: 14:20)" aria-label="정확한 태어난 시간"></div>
+<div class="fld" style="grid-column: 1 / -1"><label for="birth">생년월일(양력) *</label><input id="birth" name="birth" type="date" required max="{{birthMax}}" min="{{birthMin}}"><span style="font-size: 12px; color: #6E5A5E">만 20~39세만 신청할 수 있어요.</span></div>
+<div class="fld" style="grid-column: 1 / -1"><label for="time">태어난 시간</label><div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px"><select id="time" name="time"><option value="모름">잘 모르겠어요</option><option value="자시 (23:30~01:29)">23:30~01:29 · 자시</option><option value="축시 (01:30~03:29)">01:30~03:29 · 축시</option><option value="인시 (03:30~05:29)">03:30~05:29 · 인시</option><option value="묘시 (05:30~07:29)">05:30~07:29 · 묘시</option><option value="진시 (07:30~09:29)">07:30~09:29 · 진시</option><option value="사시 (09:30~11:29)">09:30~11:29 · 사시</option><option value="오시 (11:30~13:29)">11:30~13:29 · 오시</option><option value="미시 (13:30~15:29)">13:30~15:29 · 미시</option><option value="신시 (15:30~17:29)">15:30~17:29 · 신시</option><option value="유시 (17:30~19:29)">17:30~19:29 · 유시</option><option value="술시 (19:30~21:29)">19:30~21:29 · 술시</option><option value="해시 (21:30~23:29)">21:30~23:29 · 해시</option></select><input id="timeExact" name="timeExact" type="text" inputmode="numeric" maxlength="5" placeholder="정확한 시간 (예: 14:20)" aria-label="정확한 태어난 시간"></div></div>
 <div class="fld"><label for="gender">성별</label><select id="gender" name="gender"><option value="">선택해 주세요</option><option>여성</option><option>남성</option><option>선택 안 함</option></select></div>
 <div class="fld"><label for="region">거주 지역 *</label><select id="region" name="region" required><option value="">선택해 주세요</option><option value="서울">서울</option><option value="경기">경기</option></select><span style="font-size: 11px; color: #6E5A5E">서울·경기만 가능</span></div>
 <div class="fld" style="grid-column: 1 / -1"><label for="station">가까운 역 *</label><input id="station" name="station" type="text" required placeholder="예) 합정역, 서면역"><span style="font-size: 12px; color: #6E5A5E">상품 배송을 위한 거리 측정에 참고해요.</span></div>
@@ -510,6 +511,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <svg width="64" height="64" viewBox="-16 -16 32 32" aria-hidden="true"><path d="M0,12 C-14,2 -14,-10 -6,-11 C-2,-11.5 0,-8 0,-6 C0,-8 2,-11.5 6,-11 C14,-10 14,2 0,12 Z" fill="#B8322F"></path></svg>
 <h3 style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 26px; font-weight: 700">{{thanksTitle}}</h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.8; color: #5E4B4F"><span class="ph">신청이 완료되었어요.</span> <span class="ph">이벤트 안내를 위해 남겨주신 연락처로</span> <span class="ph">개별 연락이 갈 예정이에요.</span></p>
+<a href="https://www.instagram.com/objet_essential" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #2A2224; color: #FFFBF7; text-decoration: none; font-size: 15px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle></svg>오브제 인스타그램 팔로우</a>
 <button class="btn" type="button" onClick="{{reset}}" style="min-height: 48px; padding: 0 22px; border: 1.5px solid #2A2224; border-radius: 999px; background: #FFFBF7; color: #2A2224; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer">처음으로 돌아가기</button>
 </div>
 </sc-if>
@@ -520,7 +522,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <div class="stripe" style="height: 22px"></div>
 <div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center">
 <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; letter-spacing: 0.08em; color: #FFFBF7">OBJET</span>
-<span style="font-size: 13px; line-height: 1.7">문의 [이메일 / 인스타그램 계정] · © 2026 OBJET</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px"><a href="https://www.instagram.com/objet_essential" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid #E8D7DA; color: #FFFBF7; text-decoration: none; font-size: 14px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle></svg>@objet_essential</a><span style="font-size: 12px; color: #BFAEB1">문의는 인스타그램 DM으로 · © 2026 OBJET</span></div>
 </div>
 </footer>
 </div></template>
