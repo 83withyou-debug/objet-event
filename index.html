@@ -48,6 +48,10 @@ a{color:#B8322F}a:hover{color:#8E2220}
 .clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .chips{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin}
 @media (max-width:600px){.ico{width:36px !important}}
+@keyframes fabBob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-8px)}}
+.fab{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));z-index:70;display:inline-flex;align-items:center;gap:8px;min-height:56px;padding:0 30px;border-radius:999px;text-decoration:none;font-size:17px;font-weight:700;white-space:nowrap;box-shadow:0 10px 24px rgba(120,30,30,.35);outline:2px dashed rgba(255,251,247,.55);outline-offset:-6px;animation:fabBob 1.8s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.fab{animation:none;transform:translateX(-50%)}}
+footer{padding-bottom:90px}
 .knit-in{position:relative;z-index:1}
 @keyframes caseIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
 .case-in{animation:caseIn .45s ease}
@@ -64,7 +68,7 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; letter-spacing: 0.06em">OBJET</span>
 <span style="font-family: 'Gowun Batang', serif; font-size: 13px; color: #6E5A5E; white-space: nowrap">오브제</span>
 </a>
-<div style="display: flex; align-items: center; gap: 8px"><a href="https://www.instagram.com/objet_essential" target="_blank" rel="noopener" aria-label="오브제 인스타그램" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #E2C6CA; color: #2A2224"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle></svg></a><a class="btn" href="#apply" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #2A2224; color: #FFFBF7; text-decoration: none; font-size: 14px; font-weight: 700; white-space: nowrap">이벤트 신청하기</a></div>
+<div style="display: flex; align-items: center; gap: 8px"><a href="https://www.instagram.com/objet_essential" target="_blank" rel="noopener" aria-label="오브제 인스타그램" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #E2C6CA; color: #2A2224"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle></svg></a></div>
 </div>
 </header>
 
@@ -92,10 +96,6 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #5E4B4F"><span class="ph">오브제가 2027년을 살아갈 나를 위한</span> <span class="ph">세상에 하나뿐인 소원팔찌를 만들어 드립니다.</span></p>
 </div>
 <span style="align-self: flex-start; display: inline-flex; flex-wrap: wrap; gap: 2px 6px; padding: 8px 14px; border-radius: 999px; background: #FFFBF7; border: 1.5px dashed #B8322F; font-size: 14px; font-weight: 700; color: #2A2224"><span>신청 대상</span><span style="color: #B8322F">서울·경기 거주 만 20~39세</span></span>
-<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px">
-<a class="btn" href="#apply" style="display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border-radius: 999px; background-color: #B8322F; color: #FFFBF7; text-decoration: none; font-size: 16px; font-weight: 700">소원팔찌 신청하기</a>
-<a href="#design" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 8px; color: #2A2224; font-size: 15px; font-weight: 700">팔찌 이야기 보기 →</a>
-</div>
 </div>
 
 <div style="flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; padding-top: 40px">
@@ -226,7 +226,6 @@ a{color:#B8322F}a:hover{color:#8E2220}
 </div>
 </div>
 <p style="margin: 0; font-size: 12px; line-height: 1.6; color: #6E5A5E">※ 최종 조합은 분석 결과를 바탕으로 오브제가 제안하며, 소재 수급과 제작 가능 여부에 따라 조정될 수 있습니다.</p>
-<a class="btn" href="#apply" style="display: flex; align-items: center; justify-content: center; min-height: 54px; border-radius: 999px; background-color: #B8322F; color: #FFFBF7; text-decoration: none; font-size: 16px; font-weight: 700">나의 팔찌 이야기 신청하기</a>
 </div>
 </div>
 </div>
@@ -469,7 +468,6 @@ a{color:#B8322F}a:hover{color:#8E2220}
 </div>
 </sc-if>
 
-<a class="btn" href="#apply" style="align-self: center; display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 32px; border-radius: 999px; background-color: #B8322F; color: #FFFBF7; text-decoration: none; font-size: 16px; font-weight: 700">나도 이런 팔찌 받아보기</a>
 </div>
 </section>
 
@@ -526,6 +524,12 @@ a{color:#B8322F}a:hover{color:#8E2220}
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px"><a href="https://www.instagram.com/objet_essential" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid #E8D7DA; color: #FFFBF7; text-decoration: none; font-size: 14px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle></svg>@objet_essential</a><a href="https://objetessential.wixsite.com/objet" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid #E8D7DA; color: #FFFBF7; text-decoration: none; font-size: 14px; font-weight: 700"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 L12 4 L20 11 V20 H14 V14 H10 V20 H4 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path></svg>오브제 홈페이지</a><span style="font-size: 12px; color: #BFAEB1">문의는 인스타그램 DM으로 · © 2026 OBJET</span></div>
 </div>
 </footer>
+<div class="fab-wrap">
+<sc-if value="{{showFab}}" hint-placeholder-val="{{ true }}">
+<a class="btn fab" href="#apply" style="background-color: #B8322F; color: #FFFBF7">
+<svg width="18" height="18" viewBox="-16 -16 32 32" aria-hidden="true"><path d="M0,-14 L4.1,-4.3 L13.3,-4.3 L5.9,1.6 L8.7,11.3 L0,5.5 L-8.7,11.3 L-5.9,1.6 L-13.3,-4.3 L-4.1,-4.3 Z" fill="#F6DC94"></path></svg>소원팔찌 신청하기</a>
+</sc-if>
+</div>
 </div></template>
 <script>
 var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzdyC5k2XUrhxKDV4DJxMbGfbDfCz2QaCw2zwYJeg_cPUA2ktaMbE0M3pH4aIrPlB0uTA/exec';
@@ -604,12 +608,23 @@ window.objetSubmit = function (e, comp) {
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { part: 'cord', openLetter: -1, caseIdx: 0, heroIdx: 0, wornCase: -1, submitted: false, applicant: '' };
+    this.state = { part: 'cord', openLetter: -1, applyVisible: false, caseIdx: 0, heroIdx: 0, wornCase: -1, submitted: false, applicant: '' };
     this.hx = null;
     this.sx = null;
   }
-  componentDidMount() { this.startHero(); }
-  componentWillUnmount() { clearInterval(this.heroTimer); }
+  componentDidMount() {
+    this.startHero();
+    this.onScrollFab = () => {
+      const el = document.getElementById('apply');
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const v = r.top < window.innerHeight * 0.9 && r.bottom > 0;
+      if (v !== this.state.applyVisible) this.setState({ applyVisible: v });
+    };
+    window.addEventListener('scroll', this.onScrollFab, { passive: true });
+    document.addEventListener('scroll', this.onScrollFab, { passive: true, capture: true });
+  }
+  componentWillUnmount() { clearInterval(this.heroTimer); window.removeEventListener('scroll', this.onScrollFab); document.removeEventListener('scroll', this.onScrollFab, true); }
   startHero() { clearInterval(this.heroTimer); this.heroTimer = setInterval(() => this.setState({ heroIdx: (this.state.heroIdx + 1) % 7 }), 3500); }
   goHero(i) { this.setState({ heroIdx: (i + 7) % 7 }); this.startHero(); }
   renderVals() {
@@ -727,6 +742,7 @@ class Component extends DCLogic {
       letterFirstClass: s.openLetter === s.caseIdx ? '' : 'clamp3',
       letterToggleLabel: s.openLetter === s.caseIdx ? '편지 접기 ▲' : '편지 전체 보기 ▼',
       toggleLetter: () => this.setState({ openLetter: this.state.openLetter === this.state.caseIdx ? -1 : this.state.caseIdx }),
+      showFab: !s.applyVisible && !s.submitted,
       isCase1: s.caseIdx === 0,
       isCase2: s.caseIdx === 1,
       isCase3: s.caseIdx === 2,
